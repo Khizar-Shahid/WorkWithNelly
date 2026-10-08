@@ -24,13 +24,24 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+import SiteHeader from '@/components/SiteHeader';
+import SiteFooter from '@/components/SiteFooter';
+import MusicPlayer from '@/components/MusicPlayer';
+import GlobalScripts from '@/components/GlobalScripts';
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <GlobalScripts />
+        <SiteHeader />
+        <main style={{ flex: 1 }}>{children}</main>
+        <SiteFooter />
+        <MusicPlayer />
+      </body>
       <GoogleAnalytics gaId="G-XDDS4T5GZM" />
     </html>
   );

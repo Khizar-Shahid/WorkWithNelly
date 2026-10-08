@@ -9,84 +9,7 @@ export default function Home() {
     if (!containerRef.current) return;
     
     // Original JS logic
-    // sticky header state
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    if (window.scrollY > 40) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll);
-  onScroll();
 
-  // mobile nav toggle
-  const toggle = containerRef.current.querySelector('.navtoggle');
-  const navlinks = containerRef.current.querySelector('.navlinks');
-  toggle.addEventListener('click', () => {
-    const open = navlinks.style.display === 'flex';
-    navlinks.style.display = open ? 'none' : 'flex';
-    navlinks.style.cssText += open ? '' : 'position:absolute;top:100%;left:0;right:0;background:#F7F3EB;flex-direction:column;padding:20px 32px;gap:18px;border-bottom:1px solid rgba(19,29,56,0.08);';
-    navlinks.querySelectorAll('a').forEach(a => a.style.color = '#1E2F5A');
-  });
-
-  // background music: always on by default. Browsers refuse audio with sound until the
-  // visitor has interacted with the page, so try right away and keep retrying on every
-  // real interaction (tap, click, key) until it starts. Scrolling alone does not count
-  // as permission in any browser, which is why we listen for pointer/touch/key events.
-  // A pause only lasts for the current visit (sessionStorage), so every new visit starts with music.
-  (function musicInit(){
-    const btn = document.getElementById('musicToggle');
-    const audio = document.getElementById('bgMusic');
-    if (!btn || !audio) return;
-    audio.volume = 0.35;
-    let userPaused = false;
-    try { userPaused = sessionStorage.getItem('nellyMusicPaused') === '1'; } catch(e){}
-
-    function setState(playing){
-      btn.classList.toggle('playing', playing);
-      btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-      btn.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
-      btn.title = playing ? 'Pause background music' : 'Play background music';
-    }
-    function rememberPause(paused){
-      userPaused = paused;
-      try { paused ? sessionStorage.setItem('nellyMusicPaused','1') : sessionStorage.removeItem('nellyMusicPaused'); } catch(e){}
-    }
-    function playWithTimeout(){
-      return Promise.race([
-        audio.play(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 4000))
-      ]);
-    }
-
-    audio.addEventListener('playing', () => { setState(true); stopListening(); });
-    audio.addEventListener('pause', () => setState(false));
-
-    btn.onclick = () => {
-      if (audio.paused) {
-        rememberPause(false);
-        playWithTimeout().catch(() => setState(false));
-      } else {
-        rememberPause(true);
-        audio.pause();
-      }
-    };
-
-    const events = ['pointerdown','touchend','click','keydown'];
-    function onInteract(e){
-      if (userPaused || !audio.paused) return stopListening();
-      if (e && btn.contains(e.target)) return; // the button handles its own click
-      playWithTimeout().catch(() => {});
-    }
-    function stopListening(){
-      events.forEach(ev => document.removeEventListener(ev, onInteract, true));
-    }
-
-    if (!userPaused) {
-      audio.preload = 'auto';
-      playWithTimeout().catch(() => {});
-      events.forEach(ev => document.addEventListener(ev, onInteract, true));
-    }
-  })();
 
   // payment estimator widget
   const price = document.getElementById('price');
@@ -218,111 +141,12 @@ export default function Home() {
     });
   })();
 
-  // kinetic text reveal — splits headings into masked, staggered words.
-  // Hero heading reveals on page load; section headings reveal once as they scroll into view.
-  (function kineticInit(){
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
 
-    function splitWords(el){
-      const walk = (parent) => {
-        Array.from(parent.childNodes).forEach(n => {
-          if (n.nodeType === Node.TEXT_NODE) {
-            const frag = document.createDocumentFragment();
-            n.textContent.split(/(\s+)/).forEach(part => {
-              if (part === '') return;
-              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-              const mask = document.createElement('span');
-              mask.className = 'kinetic-mask';
-              const word = document.createElement('span');
-              word.className = 'kinetic-word';
-              word.textContent = part;
-              mask.appendChild(word);
-              frag.appendChild(mask);
-            });
-            parent.replaceChild(frag, n);
-          } else if (n.nodeType === Node.ELEMENT_NODE && n.tagName !== 'BR') {
-            walk(n);
-          }
-        });
-      };
-      walk(el);
-      el.querySelectorAll('.kinetic-word').forEach((w, i) => {
-        w.style.animationDelay = (i * 0.055) + 's';
-      });
-    }
-
-    const kinetics = containerRef.current.querySelectorAll('.kinetic');
-    kinetics.forEach(el => {
-      splitWords(el);
-      if (el.dataset.kineticMode === 'load') {
-        requestAnimationFrame(() => setTimeout(() => el.classList.add('kinetic-ready'), 200));
-      } else {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('kinetic-ready');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.4, rootMargin: '0px 0px -8% 0px' });
-        io.observe(el);
-      }
-    });
-  })();
-
-  // scroll reveal for cards/rows — staggered per group
-  (function revealInit(){
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const groups = [
-      '.who-grid > .who-card', '.loan-cats > .loan-cat', '.timeline > .tl-item',
-      '.quote-grid > .quote-card', '.widget-wrap > *', '.about-grid > *', '.photo-strip > *', '.prog > *', '.num-grid > *'
-    ];
-    groups.forEach(sel => {
-      containerRef.current.querySelectorAll(sel).forEach((el, i) => {
-        el.classList.add('reveal-up');
-        el.style.transitionDelay = (Math.min(i, 5) * 0.08) + 's';
-      });
-    });
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
-    containerRef.current.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
-  })();
   }, []);
 
   return (
     <div ref={containerRef}>
-      <header id="siteHeader">
-  <nav className="nav">
-    <a href="#home" className="logo">
-      <img className="mark mark-white" src="assets/nelly_mark_white.png" alt="" />
-      <img className="mark mark-color" src="assets/nelly_mark.png" alt="Nelly Santiesteban logo" />
-      <span className="wordmark"><span className="lw-name">Nelly Santiesteban</span><span className="lw-title">Mortgage Loan Officer</span></span>
-    </a>
-    <div className="navlinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#help">Who I Help</a>
-      <a href="#process">How It Works</a>
-      <a href="#loans">Loan Options</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div className="nav-cta">
-      <a className="nav-phone" href="tel:+17862865906">786.286.5906</a>
-      <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>
-    </div>
-    <button className="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-</header>
-
-<main>
+      <main>
 
   
   <section id="home" className="hero">
@@ -731,76 +555,7 @@ export default function Home() {
     </div>
   </section>
 
-</main>
-
-<footer>
-  <div className="wrap">
-    <div className="foot-grid">
-      <div>
-        <div className="logo">
-          <img className="mark mark-white" src="assets/nelly_mark_white.png" alt="Nelly Santiesteban logo" />
-          <span className="wordmark"><span className="lw-name">Nelly Santiesteban</span><span className="lw-title">Mortgage Loan Officer</span></span>
-        </div>
-        <p style={{ maxWidth: '260px' }}>Miami based mortgage loan officer helping buyers across Florida get the financing to live where they have always pictured themselves.</p>
-      </div>
-      <div className="foot-col">
-        <h4>Explore</h4>
-        <a href="#about">About</a>
-        <a href="#help">Who I Help</a>
-        <a href="#process">How It Works</a>
-        <a href="#loans">Loan Options</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div className="foot-col">
-        <h4>Get Started</h4>
-        <a href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>
-        <a href="#contact">Let's Talk</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms</a>
-      </div>
-      <div className="foot-card">
-        <div className="cn">Nelly Santiesteban</div>
-        <div className="ct">Mortgage Loan Officer &middot; NMLS #1808120</div>
-        <a href="tel:+17862865906">786.286.5906</a>
-        <a href="mailto:workwithnelly1@gmail.com">workwithnelly1@gmail.com</a>
-        <div className="foot-social">
-          <a href="https://www.instagram.com/workwithnelly/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="https://www.facebook.com/workwithnelly/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
-          <a href="https://www.zillow.com/lender-profile/workwithnelly/" target="_blank" rel="noopener" aria-label="Zillow"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg></a>
-          <a href="https://www.linkedin.com/in/nelly-santiesteban-17613832/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg></a>
-          <a href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
-        </div>
-        <div className="fc-note">ACE Florida Mortgage &middot; NMLS #2384013</div>
-      </div>
-    </div>
-    <div className="foot-bottom">
-      <div className="eho">
-        <img src="assets/eho_logo_white.png" alt="Equal Housing Opportunity" width="30" height="32" />
-        <span>Equal Housing Opportunity</span>
-      </div>
-      <div className="foot-legal">
-        Nelly Santiesteban, Mortgage Loan Officer, NMLS #1808120. ACE Florida Mortgage, Company NMLS #2384013. Equal Housing Opportunity. This site is for informational purposes only and is not a commitment to lend. Rates, terms, and loan programs are subject to change and individual qualification. Licensed in Florida. <a href="/privacy.html" style={{ color: 'rgba(255,255,255,0.55)', textDecoration: 'underline' }}>Privacy Policy</a> &middot; <a href="/terms.html" style={{ color: 'rgba(255,255,255,0.55)', textDecoration: 'underline' }}>Terms</a>
-      </div>
-      <div className="foot-copy">&copy; 2026 WorkWithNelly</div>
-    </div>
-  </div>
-</footer>
-
-
-<button id="musicToggle" className="music-toggle" aria-label="Play background music" aria-pressed="false" title="Play background music">
-  <svg className="mt-note" viewBox="0 0 24 24" fill="none" strokeWidth="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-  <span className="mt-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-</button>
-<audio id="bgMusic" src="assets/nelly_bg_music.mp3" loop preload="none"></audio>
-
-
-<div className="mobile-bar">
-  <div className="mb-row">
-    <a className="mb-call" href="tel:+17862865906"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
-    <a className="mb-apply" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>
-  </div>
-</div>
+      </main>
     </div>
   );
 }

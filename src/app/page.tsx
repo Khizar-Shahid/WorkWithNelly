@@ -333,7 +333,7 @@ export default function Home() {
 
     <div className="wrap hero-content">
       <span className="eyebrow">Mortgage Loan Officer</span>
-      <h1 className="serif kinetic" data-kinetic-mode="load">Your next home,<br /><span className="accent">financed right.</span></h1>
+      <h1 className="serif kinetic" data-kinetic-mode="load">Mortgage Loans in Miami, FL</h1>
       <p className="sub">I help homebuyers across Florida find the right financing for their goals and guide them from the first conversation to the closing table with confidence. Speak English and Spanish.</p>
       <div className="hero-ctas">
         <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>

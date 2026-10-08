@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nelly Santiesteban | Miami Mortgage Loan Officer | Work With Nelly",
-  description: "Work with Nelly Santiesteban, a Miami mortgage loan officer helping homebuyers, homeowners and investors across Florida with conventional, FHA, VA, jumbo, DSCR, bank statement, ITIN, foreign national and other mortgage options.",
+  title: "Mortgage Loans Miami | Nelly Santiesteban",
+  description: "Looking for mortgage loans in Miami? Nelly Santiesteban offers mortgage financing solutions to help Florida homebuyers find the right loan for their home.",
   verification: {
     google: "xVqP_jxmaqmZ-jng2pq1FNcJt7pzwnSB04yBAzkgg-Y"
   },

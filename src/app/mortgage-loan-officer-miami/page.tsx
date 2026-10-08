@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Miami Mortgage Loan Officer | Nelly Santiesteban",
   description: "Looking for a Miami mortgage loan officer? Nelly Santiesteban helps Florida homebuyers explore mortgage options and financing solutions. Get started today.",
+  alternates: {
+    canonical: "https://workwithnelly.com/mortgage-loan-officer-miami",
+  },
 };
 
 export default function MortgageLoanOfficerMiami() {

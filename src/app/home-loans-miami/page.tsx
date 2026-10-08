@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home Loans Miami | Find the Right Mortgage Loan",
   description: "Looking for home loans in Miami? Explore flexible mortgage options and find the right home loan to fit your needs and budget.",
+  alternates: {
+    canonical: "https://workwithnelly.com/home-loans-miami",
+  },
 };
 
 export default function HomeLoansMiami() {

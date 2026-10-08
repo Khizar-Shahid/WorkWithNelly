@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FHA Loans Miami | Affordable Home Loan Options",
   description: "Explore VA home loans in Miami with flexible financing options for eligible veterans, active-duty service members and qualifying borrowers.",
+  alternates: {
+    canonical: "https://workwithnelly.com/fha-loans-miami",
+  },
 };
 
 export default function FHALoansMiami() {

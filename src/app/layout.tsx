@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://workwithnelly.com"),
   title: "Mortgage Loans Miami | Nelly Santiesteban",
   description: "Looking for mortgage loans in Miami? Nelly Santiesteban offers mortgage financing solutions to help Florida homebuyers find the right loan for their home.",
+  alternates: {
+    canonical: "/",
+  },
   verification: {
     google: "xVqP_jxmaqmZ-jng2pq1FNcJt7pzwnSB04yBAzkgg-Y"
   },

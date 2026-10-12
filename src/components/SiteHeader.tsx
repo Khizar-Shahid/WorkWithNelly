@@ -42,7 +42,7 @@ export default function SiteHeader() {
           <a href="/#contact">Contact</a>
         </div>
         <div className="nav-cta">
-          <a className="nav-phone" href="tel:+17862865906">786.286.5906</a>
+          <a className="nav-phone" href="tel:7862865906">(786) 286-5906</a>
           <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>
         </div>
         <button className="navtoggle" aria-label="Menu" onClick={toggleNav}><span></span><span></span><span></span></button>

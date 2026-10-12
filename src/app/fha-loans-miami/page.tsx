@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FHA Loans Miami | Affordable Home Loan Options",
-  description: "Explore VA home loans in Miami with flexible financing options for eligible veterans, active-duty service members and qualifying borrowers.",
+  title: "FHA Loans Miami | Low Down Payment Home Loans | Nelly Santiesteban",
+  description: "Get approved for FHA Loans in Miami with low down payments and flexible credit guidelines. Contact Nelly Santiesteban for expert FHA mortgage assistance.",
+  keywords: [
+    "FHA Loans Miami",
+    "Miami FHA loans",
+    "FHA mortgage Miami FL",
+    "First time home buyer Miami FHA",
+    "Nelly Santiesteban"
+  ],
   alternates: {
     canonical: "https://workwithnelly.com/fha-loans-miami",
   },
@@ -13,13 +20,13 @@ export default function FHALoansMiami() {
     <>
       <section className="hero" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-bg">
-          <img src="/assets/nelly_hero_house.jpg" alt="FHA and VA loans Miami" className="hero-photo" />
+          <img src="/assets/nelly_hero_house.jpg" alt="FHA loans Miami" className="hero-photo" />
         </div>
         <div className="hero-overlay"></div>
         <div className="wrap hero-content">
           <span className="eyebrow">Accessible Homeownership</span>
-          <h1 className="serif kinetic" data-kinetic-mode="load">FHA Loans Miami: Affordable Financing Solutions</h1>
-          <p className="sub">Whether you are exploring FHA loans with low down payment options or VA home loans for eligible veterans, I can help you secure the right financing to buy your Miami home.</p>
+          <h1 className="serif kinetic" data-kinetic-mode="load">FHA Loans Miami – Low Down Payment Home Financing</h1>
+          <p className="sub">Qualify for FHA Loans in Miami with down payments as low as 3.5% and flexible credit requirements. Nelly Santiesteban helps Florida buyers secure affordable government-backed home loans.</p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
             <a className="btn btn-ghost-light" href="/#contact">Let's Talk</a>
@@ -31,7 +38,7 @@ export default function FHALoansMiami() {
         <div className="wrap" style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '24px', color: 'var(--navy-950)' }}>Unlock the Door with FHA &amp; VA Loans</h2>
           <p style={{ fontSize: '18px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '24px' }}>
-            Government-backed loans are an excellent path to homeownership for many buyers. <strong>FHA loans in Miami</strong> offer flexibility with credit scores and down payments, while <strong>VA home loans</strong> provide incredible benefits for those who have served our country.
+            Government-backed loans are an excellent path to homeownership for many buyers across Florida. <strong>FHA Loans in Miami</strong> offer flexibility with credit scores and down payments, making property purchases in Miami-Dade County accessible.
           </p>
           
           <div style={{ display: 'grid', gap: '24px', marginTop: '40px' }}>

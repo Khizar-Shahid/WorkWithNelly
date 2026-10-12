@@ -50,7 +50,7 @@ export default function Terms() {
           <p>
             Nelly Santiesteban, Mortgage Loan Officer<br />
             NMLS #1808120<br />
-            Phone: <a href="tel:+17862865906">786.286.5906</a><br />
+            Phone: <a href="tel:7862865906">(786) 286-5906</a><br />
             Email: <a href="mailto:workwithnelly1@gmail.com">workwithnelly1@gmail.com</a>
           </p>
 

@@ -461,7 +461,8 @@
 
   /* FOOTER */
   footer{background:var(--navy-950);color:rgba(255,255,255,0.7);padding:70px 0 30px;}
-  footer .logo{color:#fff;margin-bottom:14px;}
+  footer .logo{color:#fff;margin-bottom:14px;text-decoration:none;display:inline-flex;transition:opacity .2s ease;}
+  footer .logo:hover{opacity:0.92;text-decoration:none;}
   .foot-grid{display:grid;grid-template-columns:1.3fr 0.85fr 0.85fr 1.35fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);}
   .foot-col h4{font-family:'Sora',sans-serif;font-size:13px;color:#fff;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;}
   .foot-col a,.foot-col p{display:block;font-size:14px;margin-bottom:10px;color:rgba(255,255,255,0.65);}
@@ -472,7 +473,9 @@
   }
   .foot-card .cn{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:#fff;}
   .foot-card .ct{font-size:12.5px;color:rgba(255,255,255,0.55);margin-top:2px;margin-bottom:12px;}
-  .foot-card a{margin-bottom:6px;}
+  .foot-card-contact{display:flex;flex-direction:column;gap:6px;}
+  .foot-card-contact a,.foot-card > a{display:block;font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:0;transition:color .2s ease;}
+  .foot-card-contact a:hover,.foot-card > a:hover{color:var(--gold);}
   .foot-card .fc-note{font-size:11px;letter-spacing:0.02em;color:rgba(255,255,255,0.4);margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08);}
   .foot-social{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
   .foot-social a{width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:0;flex-shrink:0;}

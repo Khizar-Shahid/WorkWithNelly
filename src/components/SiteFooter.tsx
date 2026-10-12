@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function SiteFooter() {
   return (
     <>
@@ -5,10 +7,14 @@ export default function SiteFooter() {
         <div className="wrap">
           <div className="foot-grid">
             <div>
-              <div className="logo">
+              <Link 
+                href="/" 
+                className="logo" 
+                aria-label="Nelly Santiesteban - Home"
+              >
                 <img className="mark mark-white" src="/assets/nelly_mark_white.png" alt="Nelly Santiesteban logo" />
                 <span className="wordmark"><span className="lw-name">Nelly Santiesteban</span><span className="lw-title">Mortgage Loan Officer</span></span>
-              </div>
+              </Link>
               <p style={{ maxWidth: '260px' }}>Miami based mortgage loan officer helping buyers across Florida get the financing to live where they have always pictured themselves.</p>
             </div>
             <div className="foot-col">
@@ -30,8 +36,20 @@ export default function SiteFooter() {
             <div className="foot-card">
               <div className="cn">Nelly Santiesteban</div>
               <div className="ct">Mortgage Loan Officer &middot; NMLS #1808120</div>
-              <a href="tel:+17862865906">786.286.5906</a>
-              <a href="mailto:workwithnelly1@gmail.com">workwithnelly1@gmail.com</a>
+              <div className="foot-card-contact flex flex-col gap-1.5 mb-2">
+                <a 
+                  href="tel:7862865906" 
+                  className="foot-card-link block text-sm text-white/80 hover:text-white transition-colors"
+                >
+                  (786) 286-5906
+                </a>
+                <a 
+                  href="mailto:workwithnelly1@gmail.com" 
+                  className="foot-card-link block text-sm text-white/80 hover:text-white transition-colors"
+                >
+                  workwithnelly1@gmail.com
+                </a>
+              </div>
               <div className="foot-social">
                 <a href="https://www.instagram.com/workwithnelly/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
                 <a href="https://www.facebook.com/workwithnelly/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>

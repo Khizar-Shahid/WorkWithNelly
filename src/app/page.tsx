@@ -67,7 +67,7 @@ export default function Home() {
       btn.disabled = false;
       btn.textContent = 'Send Message';
       status.className = 'form-note err';
-      status.textContent = 'Something went wrong. Please call Nelly at 786-286-5906.';
+      status.textContent = 'Something went wrong. Please call Nelly at (786) 286-5906.';
     }
     return false;
   }
@@ -517,7 +517,7 @@ export default function Home() {
               <div className="name">Nelly Santiesteban</div>
               <div className="role">Mortgage Loan Officer</div>
               <div className="role">NMLS #1808120</div>
-              <a href="tel:+17862865906">Phone: 786-286-5906</a>
+              <a href="tel:7862865906">Phone: (786) 286-5906</a>
               <a href="mailto:workwithnelly1@gmail.com">Email: workwithnelly1@gmail.com</a>
               <div className="social-label">Social Media Accounts</div>
               <div className="foot-social">

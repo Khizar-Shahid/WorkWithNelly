@@ -107,6 +107,92 @@
   }
   .navlinks a:hover{color:var(--nav-text);}
   .navlinks a:hover::after{right:0;}
+
+  /* Nav Dropdown (Services) */
+  .nav-dropdown{
+    position:relative;
+    display:flex;
+    align-items:center;
+  }
+  .nav-dropdown-trigger{
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0 0 4px 0;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    color:var(--nav-text-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:color .2s ease;
+    white-space:nowrap;
+    position:relative;
+  }
+  .nav-dropdown-trigger::after{
+    content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--gold);
+    transition:right .22s ease;border-radius:2px;
+  }
+  .nav-dropdown:hover .nav-dropdown-trigger,
+  .nav-dropdown.open .nav-dropdown-trigger{
+    color:var(--nav-text);
+  }
+  .nav-dropdown:hover .nav-dropdown-trigger::after,
+  .nav-dropdown.open .nav-dropdown-trigger::after{
+    right:0;
+  }
+  .chevron-icon{
+    transition:transform .2s ease;
+  }
+  .chevron-icon.rotated{
+    transform:rotate(180deg);
+  }
+  .nav-dropdown-menu{
+    display:none;
+    position:absolute;
+    top:calc(100% + 8px);
+    left:50%;
+    transform:translateX(-50%);
+    background:#ffffff;
+    min-width:200px;
+    padding:8px 0;
+    border-radius:12px;
+    box-shadow:0 12px 32px rgba(19,29,56,0.14), 0 2px 6px rgba(19,29,56,0.06);
+    border:1px solid rgba(19,29,56,0.08);
+    z-index:100;
+  }
+  .nav-dropdown-menu::before{
+    content:"";
+    position:absolute;
+    top:-14px;
+    left:0;
+    right:0;
+    height:14px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu{
+    display:flex;
+    flex-direction:column;
+  }
+  .nav-dropdown-menu a{
+    padding:10px 18px;
+    font-size:13.5px;
+    font-weight:600;
+    color:#1E2F5A !important;
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease, padding-left .15s ease;
+    white-space:nowrap;
+  }
+  .nav-dropdown-menu a::after{
+    display:none !important;
+  }
+  .nav-dropdown-menu a:hover{
+    background:#F7F3EB;
+    color:var(--gold-dark) !important;
+    padding-left:22px;
+  }
+
   .nav-cta{display:flex;align-items:center;gap:16px;flex-shrink:0;}
   .nav-phone{font-size:13.5px;font-weight:600;color:var(--nav-text);white-space:nowrap;}
   .navtoggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
@@ -513,6 +599,62 @@
     .quote-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
     .navlinks{display:none;}
+    .navlinks.mobile-open{
+      display:flex;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:#F7F3EB;
+      flex-direction:column;
+      align-items:flex-start;
+      padding:24px 32px;
+      gap:16px;
+      border-bottom:1px solid rgba(19,29,56,0.12);
+      box-shadow:0 12px 24px rgba(19,29,56,0.08);
+      max-height:calc(100vh - 80px);
+      overflow-y:auto;
+    }
+    .navlinks.mobile-open a,
+    .navlinks.mobile-open .nav-dropdown-trigger{
+      color:#1E2F5A !important;
+      font-size:15px;
+      width:100%;
+      text-align:left;
+    }
+    .navlinks.mobile-open .nav-dropdown{
+      width:100%;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .navlinks.mobile-open .nav-dropdown-trigger{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:4px 0;
+    }
+    .navlinks.mobile-open .nav-dropdown-menu{
+      position:static;
+      display:none;
+      transform:none;
+      box-shadow:none;
+      border:none;
+      background:rgba(30,47,90,0.04);
+      border-left:2px solid var(--gold);
+      border-radius:4px;
+      width:100%;
+      margin-top:8px;
+      padding:6px 0 6px 14px;
+    }
+    .navlinks.mobile-open .nav-dropdown.open .nav-dropdown-menu{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .navlinks.mobile-open .nav-dropdown-menu a{
+      padding:6px 8px;
+      font-size:14px;
+    }
     .navtoggle{display:block;}
     .nav-phone{display:none;}
     .hero h1{font-size:48px;}

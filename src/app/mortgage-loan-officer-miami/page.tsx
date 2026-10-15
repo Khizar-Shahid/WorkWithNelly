@@ -66,8 +66,8 @@ export default function MortgageLoanOfficerMiami() {
             Looking for a mortgage loan officer in Miami, Florida? Nelly Santiesteban helps homebuyers understand their mortgage options and navigate the home financing process. Get personalized guidance based on your financial situation and homeownership goals.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">Contact Nelly Today</a>
-            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
+            <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-ghost-light" href="/contact">Apply Online</a>
           </div>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default function MortgageLoanOfficerMiami() {
           <p style={{ fontSize: '18px', color: 'var(--gold)', fontWeight: 600, marginBottom: '32px' }}>
             Ready to explore your mortgage options?
           </p>
-          <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">
+          <a className="btn btn-primary" href="/contact">
             Contact Nelly Today
           </a>
         </div>

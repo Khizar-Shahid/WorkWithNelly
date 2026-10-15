@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function SiteHeader() {
   const headerRef = useRef<HTMLElement>(null);
@@ -50,11 +51,11 @@ export default function SiteHeader() {
           <span className="wordmark"><span className="lw-name">Nelly Santiesteban</span><span className="lw-title">Mortgage Loan Officer</span></span>
         </a>
         <div className={`navlinks ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <a href="/#home" onClick={closeAllNav}>Home</a>
-          <a href="/#about" onClick={closeAllNav}>About</a>
-          <a href="/#help" onClick={closeAllNav}>Who I Help</a>
-          <a href="/#process" onClick={closeAllNav}>How It Works</a>
-          <a href="/#loans" onClick={closeAllNav}>Loan Options</a>
+          <Link href="/#home" onClick={closeAllNav}>Home</Link>
+          <Link href="/#about" onClick={closeAllNav}>About</Link>
+          <Link href="/#help" onClick={closeAllNav}>Who I Help</Link>
+          <Link href="/#process" onClick={closeAllNav}>How It Works</Link>
+          <Link href="/#loans" onClick={closeAllNav}>Loan Options</Link>
           
           {/* Services Dropdown */}
           <div 
@@ -78,18 +79,18 @@ export default function SiteHeader() {
               </svg>
             </button>
             <div className="nav-dropdown-menu">
-              <a href="/fha-loans-miami" onClick={closeAllNav}>FHA loans</a>
-              <a href="/home-loans-miami" onClick={closeAllNav}>Home loans</a>
-              <a href="/mortgage-loan-officer-miami" onClick={closeAllNav}>Mortgage Loan</a>
+              <Link href="/fha-loans-miami" onClick={closeAllNav}>FHA loans</Link>
+              <Link href="/home-loans-miami" onClick={closeAllNav}>Home loans</Link>
+              <Link href="/mortgage-loan-officer-miami" onClick={closeAllNav}>Mortgage Loan</Link>
             </div>
           </div>
 
-          <a href="/#reviews" onClick={closeAllNav}>Reviews</a>
-          <a href="/#contact" onClick={closeAllNav}>Contact</a>
+          <Link href="/#reviews" onClick={closeAllNav}>Reviews</Link>
+          <Link href="/contact" onClick={closeAllNav}>Contact</Link>
         </div>
         <div className="nav-cta">
           <a className="nav-phone" href="tel:7862865906">(786) 286-5906</a>
-          <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener">Apply Now</a>
+          <Link className="btn btn-primary" href="/contact">Apply Now</Link>
         </div>
         <button 
           className="navtoggle" 

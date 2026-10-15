@@ -70,8 +70,8 @@ export default function FHALoansMiami() {
             Nelly Santiesteban helps homebuyers understand FHA loan options and navigate the mortgage process. Explore financing options, learn about eligibility requirements, and take the next step toward purchasing your home.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">Contact Nelly Today</a>
-            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
+            <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-ghost-light" href="/contact">Apply Online</a>
           </div>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function FHALoansMiami() {
           <p style={{ fontSize: '18px', color: 'var(--gold)', fontWeight: 600, marginBottom: '32px' }}>
             Take the next step toward your home purchase.
           </p>
-          <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">
+          <a className="btn btn-primary" href="/contact">
             Contact Nelly Today
           </a>
         </div>

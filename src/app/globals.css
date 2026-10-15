@@ -614,6 +614,8 @@
       box-shadow:0 12px 24px rgba(19,29,56,0.08);
       max-height:calc(100vh - 80px);
       overflow-y:auto;
+      z-index:999;
+      pointer-events:auto;
     }
     .navlinks.mobile-open a,
     .navlinks.mobile-open .nav-dropdown-trigger{

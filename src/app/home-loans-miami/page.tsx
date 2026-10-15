@@ -70,8 +70,8 @@ export default function HomeLoansMiami() {
             Looking for home loans in Miami, Florida? Nelly Santiesteban helps homebuyers explore mortgage options based on their financial goals and homeownership needs. Whether you&apos;re buying your first home or looking for financing for your next property, get guidance to understand your options and take the next step toward homeownership.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">Contact Nelly Today</a>
-            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
+            <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-ghost-light" href="/contact">Apply Online</a>
           </div>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function HomeLoansMiami() {
           <p style={{ fontSize: '18px', color: 'var(--gold)', fontWeight: 600, marginBottom: '32px' }}>
             Take the next step toward your new home in Miami, Florida.
           </p>
-          <a className="btn btn-primary" href="https://www.workwithnelly.com/#contact">
+          <a className="btn btn-primary" href="/contact">
             Contact Nelly Today
           </a>
         </div>

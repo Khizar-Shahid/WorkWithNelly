@@ -25,6 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         '/package-lock.json',
       ],
     },
-    sitemap: 'https://www.workwithnelly.com/sitemap.xml',
+    sitemap: 'https://workwithnelly.com/sitemap.xml',
   }
 }

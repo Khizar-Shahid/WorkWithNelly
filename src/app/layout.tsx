@@ -28,11 +28,6 @@ export const metadata: Metadata = {
   }
 };
 
-import SiteHeader from '@/components/SiteHeader';
-import SiteFooter from '@/components/SiteFooter';
-import MusicPlayer from '@/components/MusicPlayer';
-import GlobalScripts from '@/components/GlobalScripts';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -40,11 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <GlobalScripts />
-        <SiteHeader />
-        <main style={{ flex: 1 }}>{children}</main>
-        <SiteFooter />
-        <MusicPlayer />
+        {children}
       </body>
       <GoogleAnalytics gaId="G-XDDS4T5GZM" />
     </html>

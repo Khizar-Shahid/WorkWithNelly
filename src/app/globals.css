@@ -75,7 +75,7 @@
   footer .logo .mark-color{display:none;}
 
   /* NAV */
-  header{
+  header#siteHeader{
     position:fixed;top:0;left:0;right:0;z-index:100;
     padding:22px 0;
     background:transparent;
@@ -83,7 +83,7 @@
     --nav-text:#ffffff;
     --nav-text-soft:rgba(255,255,255,0.82);
   }
-  header.scrolled{
+  header#siteHeader.scrolled{
     padding:14px 0;
     background:rgba(247,243,235,0.94);
     backdrop-filter:blur(14px);
@@ -91,7 +91,9 @@
     --nav-text:#1E2F5A;
     --nav-text-soft:#4A4A4A;
   }
-  header .logo{color:var(--nav-text);}
+  header#siteHeader .logo{color:var(--nav-text);}
+  header#siteHeader.scrolled .logo .mark-white{display:none;}
+  header#siteHeader.scrolled .logo .mark-color{display:block;}
   .nav{
     max-width:1300px;margin:0 auto;padding:0 32px;
     display:flex;align-items:center;justify-content:space-between;gap:18px;

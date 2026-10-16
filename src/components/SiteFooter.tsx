@@ -24,6 +24,7 @@ export default function SiteFooter() {
               <a href="/#process">How It Works</a>
               <a href="/#loans">Loan Options</a>
               <a href="/#reviews">Reviews</a>
+              <Link href="/blog">Blog</Link>
               <a href="/contact">Contact</a>
             </div>
             <div className="foot-col">

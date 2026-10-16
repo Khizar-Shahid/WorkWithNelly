@@ -1,22 +1,28 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function SiteHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const pathname = usePathname();
+  const isLightPage = pathname?.startsWith('/blog/');
 
   useEffect(() => {
     const onScroll = () => {
       if (!headerRef.current) return;
-      if (window.scrollY > 40) headerRef.current.classList.add('scrolled');
-      else headerRef.current.classList.remove('scrolled');
+      if (isLightPage || window.scrollY > 40) {
+        headerRef.current.classList.add('scrolled');
+      } else {
+        headerRef.current.classList.remove('scrolled');
+      }
     };
     window.addEventListener('scroll', onScroll);
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isLightPage]);
 
   const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -43,7 +49,7 @@ export default function SiteHeader() {
   };
 
   return (
-    <header id="siteHeader" ref={headerRef}>
+    <header id="siteHeader" ref={headerRef} className={isLightPage ? 'scrolled' : ''}>
       <nav className="nav">
         <a href="/#home" className="logo" onClick={closeAllNav}>
           <img className="mark mark-white" src="/assets/nelly_mark_white.png" alt="" />
@@ -86,6 +92,7 @@ export default function SiteHeader() {
           </div>
 
           <Link href="/#reviews" onClick={closeAllNav}>Reviews</Link>
+          <Link href="/blog" onClick={closeAllNav}>Blog</Link>
           <Link href="/contact" onClick={closeAllNav}>Contact</Link>
         </div>
         <div className="nav-cta">

@@ -44,6 +44,11 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <main style={{ flex: 1 }}>{children}</main>
         <SiteFooter />
         <MusicPlayer />
+        <script
+          src="https://link.msgsndr.com/js/external-tracking.js"
+          data-tracking-id="tk_3340882233e04bbda51c95468e50c67a"
+        >
+        </script>
       </body>
       <GoogleAnalytics gaId="G-XDDS4T5GZM" />
     </html>

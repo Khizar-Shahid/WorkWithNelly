@@ -160,7 +160,7 @@ export default function Home() {
       <h1 className="serif kinetic" data-kinetic-mode="load">Mortgage Loans in Miami, FL</h1>
       <p className="sub">I help homebuyers across Florida find the right financing for their goals and guide them from the first conversation to the closing table with confidence. Speak English and Spanish.</p>
       <div className="hero-ctas">
-        <a className="btn btn-primary" href="/contact">Apply Now</a>
+        <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
       </div>
       <div className="stat-row">
         <div className="stat-chip"><span className="num">20+</span><span className="lbl">LOAN OPTIONS</span></div>
@@ -391,7 +391,7 @@ export default function Home() {
           <h2 className="kinetic" data-kinetic-mode="scroll">GET A QUICK PAYMENT ESTIMATE.</h2>
           <p>Adjust the home price, down payment, estimated interest rate, and loan term to get a general idea of principal and interest.</p>
         </div>
-        <a className="btn btn-dark" href="/contact">Get My Personalized Options</a>
+        <a className="btn btn-dark" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Get My Personalized Options</a>
       </div>
       <div className="widget-card">
         <div className="widget-top">
@@ -510,7 +510,7 @@ export default function Home() {
             <h2 className="kinetic" data-kinetic-mode="scroll">READY TO TAKE THE NEXT STEP?</h2>
             <p className="lede">Whether you're ready to apply or just have a few questions, I'm here to help you understand your options and decide what makes sense for you.</p>
             <div className="hero-ctas">
-              <a className="btn btn-primary" href="/contact">Apply Now</a>
+              <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
               <a className="btn btn-ghost-light" href="#contact-form">Let's Talk</a>
             </div>
             <div className="contact-info">

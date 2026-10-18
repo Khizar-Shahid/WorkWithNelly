@@ -269,13 +269,15 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
                 <PhoneCall className="w-3.5 h-3.5" style={{ color: '#ffffff' }} />
                 <span style={{ color: '#ffffff' }}>Schedule a Consultation</span>
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="https://2384013.my1003app.com/1808120/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-outline"
                 style={{ padding: '12px 22px', fontSize: '13px' }}
               >
                 <span>Apply Online</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -97,7 +97,7 @@ export default function SiteHeader() {
         </div>
         <div className="nav-cta">
           <a className="nav-phone" href="tel:7862865906">(786) 286-5906</a>
-          <Link className="btn btn-primary" href="/contact">Apply Now</Link>
+          <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
         </div>
         <button 
           className="navtoggle" 

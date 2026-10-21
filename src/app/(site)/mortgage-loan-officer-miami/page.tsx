@@ -67,7 +67,7 @@ export default function MortgageLoanOfficerMiami() {
           </p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
-            <a className="btn btn-ghost-light" href="/contact">Apply Online</a>
+            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
           </div>
         </div>
       </section>

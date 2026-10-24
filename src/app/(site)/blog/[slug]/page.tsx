@@ -153,10 +153,10 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
 
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })
     : '';
 
   const heroImageUrl = post.mainImage ? urlForImage(post.mainImage).width(1200).height(675).url() : null;

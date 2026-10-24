@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { contactJsonLd } from "@/lib/jsonld";
 
 export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
@@ -41,6 +42,10 @@ export default function ContactPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <section className="hero" style={{ minHeight: "55vh", display: "flex", alignItems: "center" }}>
         <div className="hero-bg">
           <img src="/assets/nelly_hero_house.jpg" alt="Contact Nelly Santiesteban" className="hero-photo" />

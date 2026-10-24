@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { mortgageOfficerJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Mortgage Loan Officer Miami | Nelly Santiesteban",
@@ -31,24 +32,11 @@ export default function MortgageLoanOfficerMiami() {
     }
   ];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqList.map((item) => ({
-      "@type": "Question",
-      "name": item.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.a
-      }
-    }))
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mortgageOfficerJsonLd) }}
       />
 
       {/* HERO SECTION */}
@@ -96,7 +84,7 @@ export default function MortgageLoanOfficerMiami() {
           <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '32px' }}>
             Find guidance for your home financing needs in Miami, Florida.
           </p>
-          
+
           <div style={{ display: 'grid', gap: '18px', marginTop: '24px' }}>
             <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
               <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Mortgage Consultation</h3>

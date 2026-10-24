@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { homeLoansJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Home Loans Miami | Low Rates & Fast Pre-Approval | Nelly Santiesteban",
@@ -35,24 +36,11 @@ export default function HomeLoansMiami() {
     }
   ];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqList.map((item) => ({
-      "@type": "Question",
-      "name": item.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.a
-      }
-    }))
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeLoansJsonLd) }}
       />
 
       {/* HERO SECTION */}
@@ -88,7 +76,7 @@ export default function HomeLoansMiami() {
           <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '32px' }}>
             Explore home mortgage loans in Miami and get guidance on available financing options that may fit your situation.
           </p>
-          
+
           <div style={{ display: 'grid', gap: '18px', marginTop: '28px' }}>
             <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
               <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>First-Time Home Buyers</h3>

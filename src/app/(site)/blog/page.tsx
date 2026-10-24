@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import BlogBrowser from '@/components/BlogBrowser';
 import { client } from '@/sanity/lib/client';
 import { postsQuery } from '@/sanity/lib/queries';
+import { blogJsonLd } from '@/lib/jsonld';
 
 export const metadata: Metadata = {
   title: 'Mortgage & Home Loan Blog | Nelly Santiesteban',
@@ -45,6 +46,10 @@ export default async function BlogIndexPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
       {/* Standard Site Hero */}
       <section className="hero" style={{ minHeight: '52vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-bg">

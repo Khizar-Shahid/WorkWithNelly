@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fhaLoansJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "FHA Loans Miami | Low Down Payment Home Loans | Nelly Santiesteban",
@@ -35,24 +36,11 @@ export default function FHALoansMiami() {
     }
   ];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqList.map((item) => ({
-      "@type": "Question",
-      "name": item.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.a
-      }
-    }))
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(fhaLoansJsonLd) }}
       />
 
       {/* HERO SECTION */}
@@ -100,7 +88,7 @@ export default function FHALoansMiami() {
           <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '32px' }}>
             Understanding the requirements is an important part of choosing an FHA loan. Get guidance on key considerations, including:
           </p>
-          
+
           <div style={{ display: 'grid', gap: '18px', marginTop: '24px' }}>
             <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
               <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Down Payment Requirements</h3>

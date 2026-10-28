@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "../globals.css";
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
@@ -51,6 +52,12 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         </script>
       </body>
       <GoogleAnalytics gaId="G-XDDS4T5GZM" />
+      {/* second GA4 property (A+ Active) feeding the lead tracker dashboard */}
+      <Script id="ga-aplus" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('config', 'G-SG6QB1MS09');`}
+      </Script>
     </html>
   );
 }

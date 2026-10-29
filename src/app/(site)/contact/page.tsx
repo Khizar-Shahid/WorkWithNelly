@@ -9,9 +9,6 @@ export default function ContactPage() {
     message: "Your message goes straight to Nelly.",
   });
 
-  const LEADS_ENDPOINT =
-    "https://script.google.com/macros/s/AKfycbxNFAijFT1cJXW8-hprEMOKNRIyEdloLviqe5Y2g3njQJBoi_mit_w0jAXuI699cwKvHQ/exec";
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -19,12 +16,30 @@ export default function ContactPage() {
     setStatus({ type: "idle", message: "Sending..." });
 
     try {
-      const formData = new FormData(form);
-      await fetch(LEADS_ENDPOINT, {
+      const fd = new FormData(form);
+      const payload = {
+        name: fd.get("name") as string,
+        phone: fd.get("phone") as string,
+        email: fd.get("email") as string,
+        message: fd.get("message") as string,
+      };
+
+      const res = await fetch("/api/contact", {
         method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams(formData as any),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setSubmitting(false);
+        setStatus({
+          type: "err",
+          message: data.error || "Something went wrong. Please call Nelly directly at (786) 286-5906.",
+        });
+        return;
+      }
+
       form.reset();
       setSubmitting(false);
       setStatus({

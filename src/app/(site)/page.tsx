@@ -47,8 +47,7 @@ export default function Home() {
     }));
     calc();
 
-    // contact form -> posts to a Google Apps Script web app that appends a row to the CRM tracker sheet
-    const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxNFAijFT1cJXW8-hprEMOKNRIyEdloLviqe5Y2g3njQJBoi_mit_w0jAXuI699cwKvHQ/exec';
+    // contact form -> posts to /api/contact which fans out to Resend + Google Sheet
     async function sendContactForm(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
@@ -58,8 +57,26 @@ export default function Home() {
       btn.textContent = 'Sending...';
       status.className = 'form-note';
       try {
-        // no-cors: Apps Script redirects its response, so the browser can't read it; a network failure still throws
-        await fetch(LEADS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) });
+        const fd = new FormData(form);
+        const payload = {
+          name: fd.get('name'),
+          phone: fd.get('phone'),
+          email: fd.get('email'),
+          message: fd.get('message'),
+        };
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+          status.className = 'form-note err';
+          status.textContent = data.error || 'Something went wrong. Please call Nelly at (786) 286-5906.';
+          return;
+        }
         form.reset();
         btn.textContent = 'Message Sent';
         status.className = 'form-note ok';

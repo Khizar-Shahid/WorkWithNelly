@@ -2,6 +2,7 @@
 "use client";
 import { useEffect, useRef } from 'react';
 import { homePageJsonLd } from '@/lib/jsonld';
+import PaymentCalculator from '@/components/PaymentCalculator';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,41 +12,6 @@ export default function Home() {
 
     // Original JS logic
 
-
-    // payment estimator widget
-    const price = document.getElementById('price');
-    const down = document.getElementById('down');
-    const rate = document.getElementById('rate');
-    const priceOut = document.getElementById('priceOut');
-    const downOut = document.getElementById('downOut');
-    const rateOut = document.getElementById('rateOut');
-    const paymentOut = document.getElementById('paymentOut');
-    const termBtns = containerRef.current.querySelectorAll('.toggle-row button');
-    let term = 30;
-
-    function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
-
-    function calc() {
-      const p = parseFloat(price.value);
-      const d = parseFloat(down.value) / 100;
-      const r = parseFloat(rate.value) / 100 / 12;
-      const n = term * 12;
-      const loan = p * (1 - d);
-      const payment = r === 0 ? loan / n : loan * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-      priceOut.textContent = '$' + fmt(p);
-      downOut.textContent = down.value + '%';
-      rateOut.textContent = parseFloat(rate.value).toFixed(3).replace(/0+$/, '').replace(/\.$/, '') + '%';
-      paymentOut.textContent = fmt(payment);
-    }
-
-    [price, down, rate].forEach(el => el.addEventListener('input', calc));
-    termBtns.forEach(btn => btn.addEventListener('click', () => {
-      termBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      term = parseInt(btn.dataset.term);
-      calc();
-    }));
-    calc();
 
     // contact form -> posts to /api/contact which fans out to Resend + Google Sheet
     async function sendContactForm(e) {
@@ -184,22 +150,58 @@ export default function Home() {
 
           <section id="home" className="hero">
             <div className="hero-bg">
-              <img src="assets/nelly_hero_house.jpg" alt="" className="hero-photo" />
+              <img src="assets/nelly_hero_bright.jpg" alt="" className="hero-photo" />
             </div>
             <div className="hero-overlay"></div>
 
-            <div className="wrap hero-content">
-              <span className="eyebrow">Mortgage Loan Officer</span>
-              <h1 className="serif kinetic" data-kinetic-mode="load">Mortgage Loans in Miami, FL</h1>
-              <p className="sub">I help homebuyers across Florida find the right financing for their goals and guide them from the first conversation to the closing table with confidence. Speak English and Spanish.</p>
-              <div className="hero-ctas">
-                <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
+            <div className="wrap hero-content hero-grid">
+              <div className="hero-copy">
+                <span className="eyebrow">Mortgage Loans in Miami, FL</span>
+                <h1 className="serif kinetic" data-kinetic-mode="load">Your next home, financed right.</h1>
+                <p className="hero-tagline">Miami mortgage loan officer serving all of Florida</p>
+                <p className="sub">I help homebuyers find the right financing for their goals and guide them from the first conversation to the closing table with confidence, in English or Spanish.</p>
+                <div className="hero-ctas">
+                  <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Now</a>
+                  <a className="btn btn-ghost-light" href="#contact-form">Let&apos;s Talk</a>
+                </div>
+                <div className="stat-row">
+                  <div className="stat-chip"><span className="lbl">HELPING BUYERS SINCE</span><span className="num">2005</span></div>
+                  <div className="stat-chip"><span className="lbl lbl-solo">ENGLISH &amp; ESPA&Ntilde;OL</span></div>
+                  <div className="stat-chip"><span className="lbl lbl-solo">SERVING ALL FLORIDA</span></div>
+                </div>
               </div>
-              <div className="stat-row">
-                <div className="stat-chip"><span className="num">20+</span><span className="lbl">LOAN OPTIONS</span></div>
-                <div className="stat-chip"><span className="lbl lbl-solo">PERSONALIZED LOAN OPTIONS</span></div>
-                <div className="stat-chip"><span className="num">FAST</span><span className="lbl">RESPONSIVE PRE-APPROVALS</span></div>
+              <div className="hero-portrait">
+                <img src="assets/nelly_headshot_new.jpg" alt="Nelly Santiesteban, Miami mortgage loan officer" />
+                <div className="hp-tag">
+                  <div className="n">Nelly Santiesteban</div>
+                  <div className="l">NMLS #1808120</div>
+                </div>
               </div>
+            </div>
+          </section>
+
+
+          <section id="featured-review" className="feat-review">
+            <div className="wrap fr-inner">
+              <div className="fr-mark" aria-hidden="true">&ldquo;</div>
+              <figure>
+                <div className="fr-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>She was incredibly caring, patient, professional, and always there to help whenever I had a question or concern. She made the entire experience smooth and reassuring, and most importantly, she got the job done!</blockquote>
+                <figcaption><b>Laura C.</b><span>Verified Google review</span></figcaption>
+              </figure>
+              <a className="fr-link" href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener">5.0 on Google &rarr;</a>
+            </div>
+          </section>
+
+
+          <section id="estimator" className="calc-sec">
+            <div className="wrap">
+              <div className="sec-head center">
+                <span className="eyebrow">Payment Calculator</span>
+                <h2 className="kinetic" data-kinetic-mode="scroll">What could your monthly payment look like?</h2>
+                <p>See the full picture: principal, interest, property taxes, homeowners insurance, HOA fees and mortgage insurance. Change any number and the breakdown updates instantly.</p>
+              </div>
+              <PaymentCalculator />
             </div>
           </section>
 
@@ -234,7 +236,7 @@ export default function Home() {
           </section>
 
 
-          <section id="help">
+          <section id="help" className="sec-navy">
             <div className="wrap">
               <div className="sec-head">
                 <span className="eyebrow">Who I Help</span>
@@ -408,48 +410,9 @@ export default function Home() {
                 <div className="num-ctas">
                   <div className="ask">Ready to review your numbers?</div>
                   <a className="btn btn-primary" href="#contact-form">Review My Numbers</a>
-                  <a className="btn btn-ghost-light" href="#estimator">Try the Payment Estimator</a>
+                  <a className="btn btn-ghost-light" href="#estimator">Try the Payment Calculator</a>
                 </div>
                 <p className="num-legal">Loan approval and terms are subject to credit, income, assets, property and program requirements.</p>
-              </div>
-            </div>
-          </section>
-
-
-          <section id="estimator" style={{ background: 'var(--cream-2)' }}>
-            <div className="wrap widget-wrap">
-              <div className="widget-copy">
-                <div className="sec-head">
-                  <span className="eyebrow">Payment Estimator</span>
-                  <h2 className="kinetic" data-kinetic-mode="scroll">GET A QUICK PAYMENT ESTIMATE.</h2>
-                  <p>Adjust the home price, down payment, estimated interest rate, and loan term to get a general idea of principal and interest.</p>
-                </div>
-                <a className="btn btn-dark" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Get My Personalized Options</a>
-              </div>
-              <div className="widget-card">
-                <div className="widget-top">
-                  <h3>Payment Estimator</h3>
-                </div>
-                <div className="field-row">
-                  <label>Home Price <b id="priceOut">$400,000</b></label>
-                  <input type="range" id="price" min="150000" max="1200000" step="5000" defaultValue="400000" />
-                </div>
-                <div className="field-row">
-                  <label>Down Payment <b id="downOut">10%</b></label>
-                  <input type="range" id="down" min="0" max="50" step="1" defaultValue="10" />
-                </div>
-                <div className="field-row">
-                  <label>Interest Rate <b id="rateOut">6.5%</b></label>
-                  <input type="range" id="rate" min="4" max="9" step="0.125" defaultValue="6.5" />
-                </div>
-                <div className="toggle-row">
-                  <button className="active" data-term="30">30 Year</button>
-                  <button data-term="15">15 Year</button>
-                </div>
-                <div className="widget-output">
-                  <div className="amt"><span>$</span><span id="paymentOut">1,822</span><span>/mo</span></div>
-                </div>
-                <div className="widget-disclaimer">Estimate for informational purposes only. Payment shown is principal and interest only and does not include property taxes, homeowners insurance, mortgage insurance, HOA fees, or other applicable costs. This is not a loan quote or commitment to lend.</div>
               </div>
             </div>
           </section>
@@ -459,7 +422,7 @@ export default function Home() {
             <div className="wrap">
               <div className="sec-head center">
                 <span className="eyebrow">Client Reviews</span>
-                <h2 className="kinetic" data-kinetic-mode="scroll">What it's actually like to work with Nelly.</h2>
+                <h2 className="kinetic" data-kinetic-mode="scroll">What it&apos;s actually like to work with Nelly.</h2>
               </div>
 
               <div className="quote-grid">
@@ -471,51 +434,51 @@ export default function Home() {
                     <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
                     <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
                   </div>
-                  <p>Nelly explained every step in a way that actually made sense to us. We closed in five weeks and never once felt lost.</p>
+                  <p>As a first time home buyer Mrs. Santiesteban absolutely created a safe and secure sense of understanding the complexities of buying.</p>
+                  <div className="quote-attr">
+                    <div className="quote-who">
+                      <div className="quote-avatar">V</div>
+                      <div>
+                        <div className="who">Vanessa S.</div>
+                        <div className="where">First time homebuyer</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="quote-card">
+                  <div className="stars">
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                  </div>
+                  <p>Highly recommended! She helped me from beginning to end. Thanks to her, my family and I bought our first home.</p>
+                  <div className="quote-attr">
+                    <div className="quote-who">
+                      <div className="quote-avatar">S</div>
+                      <div>
+                        <div className="who">Shiqui M.</div>
+                        <div className="where">Translated from Spanish</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="quote-card">
+                  <div className="stars">
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
+                  </div>
+                  <p>Excellent customer service and trustworthy company. It was a pleasure working with them and getting the best outcome for my financial needs. Ms. Santiesteban was truly a pleasure to work with.</p>
                   <div className="quote-attr">
                     <div className="quote-who">
                       <div className="quote-avatar">C</div>
                       <div>
-                        <div className="who">Carla M.</div>
-                        <div className="where">Miami, FL</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="quote-card">
-                  <div className="stars">
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                  </div>
-                  <p>She walked my parents through the entire process in Spanish. No confusion, no stress. We are homeowners because of her.</p>
-                  <div className="quote-attr">
-                    <div className="quote-who">
-                      <div className="quote-avatar">D</div>
-                      <div>
-                        <div className="who">Daniel R.</div>
-                        <div className="where">Palmetto Bay, FL</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="quote-card">
-                  <div className="stars">
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                  </div>
-                  <p>I messaged her at 9pm with a random question and she answered within minutes. That is the kind of service you remember.</p>
-                  <div className="quote-attr">
-                    <div className="quote-who">
-                      <div className="quote-avatar">A</div>
-                      <div>
-                        <div className="who">Ashley T.</div>
-                        <div className="where">Kendall, FL</div>
+                        <div className="who">Claire S.</div>
+                        <div className="where">Google review</div>
                       </div>
                     </div>
                   </div>

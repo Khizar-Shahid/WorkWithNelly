@@ -819,3 +819,13 @@
     .pc-legend{width:100%;}
     .pc-num input{width:80px;}
   }
+
+  /* Mobile header fix (11/5): keep the menu button on screen */
+  .navtoggle{flex-shrink:0;}
+  @media (max-width: 640px){
+    .nav{padding:0 18px;gap:12px;}
+    .nav-cta{display:none;} /* Call + Apply Now live in the sticky bottom bar on phones */
+    .logo{gap:10px;min-width:0;}
+    .logo .mark{width:32px;}
+    .logo .lw-name{font-size:16.5px;}
+  }

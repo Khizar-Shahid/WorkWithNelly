@@ -24,8 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const imageUrl = post.mainImage ? urlForImage(post.mainImage).width(1200).height(630).url() : undefined;
-
+  const imageUrl = post.mainImage?.asset ? urlForImage(post.mainImage).width(1200).height(630).url() : undefined;
   return {
     title: `${post.title} | Nelly Santiesteban Blog`,
     description: post.excerpt || `Read ${post.title} by Nelly Santiesteban, Miami Mortgage Loan Officer.`,
@@ -159,8 +158,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     })
     : '';
 
-  const heroImageUrl = post.mainImage ? urlForImage(post.mainImage).width(1200).height(675).url() : null;
-
+  const heroImageUrl = post.mainImage?.asset ? urlForImage(post.mainImage).width(1200).height(675).url() : null;
   return (
     <article className="min-h-screen bg-[var(--cream)]" style={{ paddingTop: '130px', paddingBottom: '90px' }}>
       <div className="wrap" style={{ maxWidth: '820px', margin: '0 auto' }}>

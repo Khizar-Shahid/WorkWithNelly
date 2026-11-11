@@ -1260,3 +1260,352 @@ export const blogJsonLd = {
     },
   ],
 };
+
+// 7. DSCR Loans Miami JSON-LD
+export const dscrLoansJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FinancialService",
+      "@id": "https://workwithnelly.com/#business",
+      "name": "Nelly Santiesteban - Mortgage Loan Officer",
+      "alternateName": "Work With Nelly",
+      "description": "Miami-based mortgage loan officer helping homebuyers and investors across Florida with DSCR, ITIN, FHA, conventional, and non-QM loan programs. Bilingual in English and Spanish.",
+      "url": "https://workwithnelly.com",
+      "logo": "https://www.workwithnelly.com/assets/nelly_mark.png",
+      "image": "https://www.workwithnelly.com/assets/nelly_headshot_new.jpg",
+      "telephone": "+1-786-286-5906",
+      "email": "workwithnelly1@gmail.com",
+      "areaServed": [
+        { "@type": "City", "name": "Miami" },
+        { "@type": "State", "name": "Florida" }
+      ],
+      "knowsLanguage": ["English", "Spanish"],
+      "knowsAbout": [
+        "DSCR investment loans",
+        "ITIN loans",
+        "FHA loans",
+        "Conventional loans",
+        "Self-employed mortgage programs",
+        "Mortgage refinance"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NMLS",
+        "value": "1808120"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "ACE Florida Mortgage",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NMLS",
+          "value": "2384013"
+        }
+      },
+      "founder": {
+        "@id": "https://workwithnelly.com/#nelly"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+1-786-286-5906",
+        "email": "workwithnelly1@gmail.com",
+        "availableLanguage": ["English", "Spanish"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/workwithnelly/",
+        "https://www.facebook.com/workwithnelly/",
+        "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
+        "https://www.zillow.com/lender-profile/workwithnelly/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://workwithnelly.com/#nelly",
+      "name": "Nelly Santiesteban",
+      "jobTitle": "Mortgage Loan Officer",
+      "description": "Mortgage loan officer in Miami, FL, helping clients with home financing and real estate investments since 2005.",
+      "image": "https://www.workwithnelly.com/assets/nelly_headshot_new.jpg",
+      "url": "https://workwithnelly.com/mortgage-loan-officer-miami",
+      "telephone": "+1-786-286-5906",
+      "email": "workwithnelly1@gmail.com",
+      "knowsLanguage": ["English", "Spanish"],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NMLS",
+        "value": "1808120"
+      },
+      "worksFor": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
+        "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://www.instagram.com/workwithnelly/",
+        "https://www.facebook.com/workwithnelly/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://workwithnelly.com/#website",
+      "url": "https://workwithnelly.com",
+      "name": "Work With Nelly",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://workwithnelly.com/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://workwithnelly.com/dscr-loans-miami#webpage",
+      "url": "https://workwithnelly.com/dscr-loans-miami",
+      "name": "DSCR Loans in Miami, FL | Investment Property Financing",
+      "description": "Explore DSCR loans in Miami, FL, and finance your investment property based on rental income. Find flexible financing options for real estate investors.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://workwithnelly.com/#website"
+      },
+      "about": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://workwithnelly.com/dscr-loans-miami#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://workwithnelly.com/dscr-loans-miami#service"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://workwithnelly.com/dscr-loans-miami#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://workwithnelly.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "DSCR Loans Miami",
+          "item": "https://workwithnelly.com/dscr-loans-miami"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://workwithnelly.com/dscr-loans-miami#service",
+      "name": "DSCR Loans in Miami, FL",
+      "serviceType": "DSCR Mortgage Loan",
+      "description": "Explore DSCR loans in Miami, FL, and finance your investment property based on rental income. Find flexible financing options for real estate investors.",
+      "url": "https://workwithnelly.com/dscr-loans-miami",
+      "provider": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Miami" },
+        { "@type": "State", "name": "Florida" }
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Real Estate Investors"
+      }
+    },
+
+  ]
+};
+
+// 8. ITIN Home Loans Miami JSON-LD
+export const itinLoansJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FinancialService",
+      "@id": "https://workwithnelly.com/#business",
+      "name": "Nelly Santiesteban - Mortgage Loan Officer",
+      "alternateName": "Work With Nelly",
+      "description": "Miami-based mortgage loan officer helping homebuyers across Florida with ITIN, FHA, conventional, and specialized loan programs. Bilingual in English and Spanish.",
+      "url": "https://workwithnelly.com",
+      "logo": "https://www.workwithnelly.com/assets/nelly_mark.png",
+      "image": "https://www.workwithnelly.com/assets/nelly_headshot_new.jpg",
+      "telephone": "+1-786-286-5906",
+      "email": "workwithnelly1@gmail.com",
+      "areaServed": [
+        { "@type": "City", "name": "Miami" },
+        { "@type": "State", "name": "Florida" }
+      ],
+      "knowsLanguage": ["English", "Spanish"],
+      "knowsAbout": [
+        "ITIN loans",
+        "Home financing without SSN",
+        "FHA loans",
+        "Conventional loans",
+        "Self-employed mortgage programs",
+        "Mortgage refinance"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NMLS",
+        "value": "1808120"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "ACE Florida Mortgage",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NMLS",
+          "value": "2384013"
+        }
+      },
+      "founder": {
+        "@id": "https://workwithnelly.com/#nelly"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+1-786-286-5906",
+        "email": "workwithnelly1@gmail.com",
+        "availableLanguage": ["English", "Spanish"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/workwithnelly/",
+        "https://www.facebook.com/workwithnelly/",
+        "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
+        "https://www.zillow.com/lender-profile/workwithnelly/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://workwithnelly.com/#nelly",
+      "name": "Nelly Santiesteban",
+      "jobTitle": "Mortgage Loan Officer",
+      "description": "Mortgage loan officer in Miami, FL, helping clients achieve homeownership with ITIN and customized mortgage solutions since 2005.",
+      "image": "https://www.workwithnelly.com/assets/nelly_headshot_new.jpg",
+      "url": "https://workwithnelly.com/mortgage-loan-officer-miami",
+      "telephone": "+1-786-286-5906",
+      "email": "workwithnelly1@gmail.com",
+      "knowsLanguage": ["English", "Spanish"],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NMLS",
+        "value": "1808120"
+      },
+      "worksFor": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
+        "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://www.instagram.com/workwithnelly/",
+        "https://www.facebook.com/workwithnelly/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://workwithnelly.com/#website",
+      "url": "https://workwithnelly.com",
+      "name": "Work With Nelly",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://workwithnelly.com/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://workwithnelly.com/itin-home-loans-miami#webpage",
+      "url": "https://workwithnelly.com/itin-home-loans-miami",
+      "name": "ITIN Home Loans in Miami, FL | Mortgage Options",
+      "description": "Looking for ITIN home loans in Miami, FL? Explore mortgage options for ITIN holders and learn how to finance your dream home without a Social Security Number.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://workwithnelly.com/#website"
+      },
+      "about": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://workwithnelly.com/itin-home-loans-miami#breadcrumb",
+      },
+      "mainEntity": {
+        "@id": "https://workwithnelly.com/itin-home-loans-miami#service"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://workwithnelly.com/itin-home-loans-miami#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://workwithnelly.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ITIN Home Loans Miami",
+          "item": "https://workwithnelly.com/itin-home-loans-miami"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://workwithnelly.com/itin-home-loans-miami#service",
+      "name": "ITIN Home Loans in Miami, FL",
+      "serviceType": "ITIN Mortgage Loan",
+      "description": "Looking for ITIN home loans in Miami, FL? Explore mortgage options for ITIN holders and learn how to finance your dream home without a Social Security Number.",
+      "url": "https://workwithnelly.com/itin-home-loans-miami",
+      "provider": {
+        "@id": "https://workwithnelly.com/#business"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Miami" },
+        { "@type": "State", "name": "Florida" }
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Homebuyers with an ITIN"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://workwithnelly.com/itin-home-loans-miami#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I buy a home in Miami with an ITIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Certain lenders offer mortgage programs for eligible borrowers who use an ITIN instead of a Social Security Number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can self-employed individuals apply for ITIN home loans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Some lenders accept self-employed applicants and review tax returns, bank statements, and other income documents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do ITIN home loans require a down payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Down payment requirements depend on the lender and loan program."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I apply without a Social Security Number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ITIN mortgage programs are designed for eligible applicants who do not have an SSN."
+          }
+        }
+      ]
+    }
+  ]
+};

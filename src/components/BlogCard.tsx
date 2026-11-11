@@ -17,13 +17,15 @@ export interface BlogPostItem {
 }
 
 export default function BlogCard({ post }: { post: BlogPostItem }) {
-  const imageUrl = post.mainImage ? urlForImage(post.mainImage).width(720).height(480).url() : null;
+  const imageUrl = post.mainImage?.asset
+    ? urlForImage(post.mainImage).width(720).height(480).url()
+    : null;
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      })
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
     : '';
 
   return (

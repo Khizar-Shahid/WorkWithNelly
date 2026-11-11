@@ -70,11 +70,13 @@ export const homePageJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {
@@ -359,11 +361,13 @@ export const fhaLoansJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {
@@ -574,11 +578,13 @@ export const homeLoansJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {
@@ -830,11 +836,13 @@ export const mortgageOfficerJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {
@@ -1016,11 +1024,13 @@ export const contactJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {
@@ -1165,11 +1175,13 @@ export const blogJsonLd = {
           "Spanish",
         ],
       },
+      "hasMap": "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       "sameAs": [
         "https://www.instagram.com/workwithnelly/",
         "https://www.facebook.com/workwithnelly/",
         "https://www.linkedin.com/in/nelly-santiesteban-17613832/",
         "https://www.zillow.com/lender-profile/workwithnelly/",
+        "https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6",
       ],
     },
     {

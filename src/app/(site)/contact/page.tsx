@@ -150,7 +150,7 @@ export default function ContactPage() {
                       </svg>
                     </a>
                     <a
-                      href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&kgmid=%2Fg%2F11yr03xkym"
+                      href="https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Google Business Profile"

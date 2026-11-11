@@ -56,7 +56,7 @@ export default function SiteFooter() {
                 <a href="https://www.facebook.com/workwithnelly/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
                 <a href="https://www.zillow.com/lender-profile/workwithnelly/" target="_blank" rel="noopener noreferrer" aria-label="Zillow"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg></a>
                 <a href="https://www.linkedin.com/in/nelly-santiesteban-17613832/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg></a>
-                <a href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
+                <a href="https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
               </div>
               <div className="fc-note">ACE Florida Mortgage &middot; NMLS #2384013</div>
             </div>

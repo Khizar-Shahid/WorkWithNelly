@@ -492,7 +492,7 @@ export default function Home() {
                 <a href="https://www.instagram.com/workwithnelly/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" /></svg></a>
                 <a href="https://www.facebook.com/workwithnelly/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" /></svg></a>
                 <a href="https://www.linkedin.com/in/nelly-santiesteban-17613832/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4" /></svg></a>
-                <a href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
+                <a href="https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6" target="_blank" rel="noopener" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
               </div>
             </div>
           </section>
@@ -521,7 +521,7 @@ export default function Home() {
                         <a href="https://www.facebook.com/workwithnelly/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" /></svg></a>
                         <a href="https://www.zillow.com/lender-profile/workwithnelly/" target="_blank" rel="noopener" aria-label="Zillow"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M3 11l9-7 9 7M5 10v10h14V10" /></svg></a>
                         <a href="https://www.linkedin.com/in/nelly-santiesteban-17613832/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4" /></svg></a>
-                        <a href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
+                        <a href="https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6" target="_blank" rel="noopener" aria-label="Google Business Profile"><span className="g-mark">G</span></a>
                       </div>
                     </div>
                   </div>
@@ -546,6 +546,63 @@ export default function Home() {
                     <button type="submit" className="btn btn-primary" id="cf-submit">Send Message</button>
                     <div className="form-note" id="cf-status" role="status">Your message goes straight to Nelly.</div>
                   </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* GOOGLE MAP / LOCATION SECTION */}
+          <section id="location" style={{ padding: '0 0 80px 0', background: 'var(--cream)' }}>
+            <div className="wrap">
+              <div style={{
+                background: '#ffffff',
+                borderRadius: '24px',
+                padding: '36px 32px 32px 32px',
+                boxShadow: '0 8px 30px rgba(19, 29, 56, 0.05)',
+                border: '1px solid rgba(19, 29, 56, 0.08)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '22px' }}>
+                  <div>
+                    <span className="eyebrow" style={{ display: 'inline-block', marginBottom: '6px' }}>Office &amp; Service Area</span>
+                    <h2 style={{ fontSize: '28px', color: 'var(--navy-950)', margin: '0 0 6px 0', fontFamily: 'Sora, sans-serif' }}>
+                      Find Nelly Santiesteban on Google Maps
+                    </h2>
+                    <p style={{ color: 'var(--ink-soft)', margin: 0, fontSize: '16px' }}>
+                      Mortgage Loan Officer &middot; Serving Miami and clients across Florida
+                    </p>
+                  </div>
+                  <a
+                    className="btn btn-outline"
+                    href="https://maps.app.goo.gl/kgq71Ddfi5XUcW2G6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Open in Google Maps</span>
+                  </a>
+                </div>
+                <div style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '420px',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(19, 29, 56, 0.08)'
+                }}>
+                  <iframe
+                    title="Nelly Santiesteban - Mortgage Loan Officer on Google Maps"
+                    src="https://maps.google.com/maps?q=Nelly+Santiesteban&ll=25.6510091,-80.4150597&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: 'block' }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </div>
             </div>

@@ -37,6 +37,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -45,19 +46,20 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <main style={{ flex: 1 }}>{children}</main>
         <SiteFooter />
         <MusicPlayer />
-        <script
+        <Script
+          id="msgsndr-tracking"
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_3340882233e04bbda51c95468e50c67a"
-        >
-        </script>
-      </body>
-      <GoogleAnalytics gaId="G-XDDS4T5GZM" />
-      {/* second GA4 property (A+ Active) feeding the lead tracker dashboard */}
-      <Script id="ga-aplus" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];
+          strategy="afterInteractive"
+        />
+        <GoogleAnalytics gaId="G-XDDS4T5GZM" />
+        {/* second GA4 property (A+ Active) feeding the lead tracker dashboard */}
+        <Script id="ga-aplus" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('config', 'G-SG6QB1MS09');`}
-      </Script>
+        </Script>
+      </body>
     </html>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { itinLoansJsonLd } from "@/lib/jsonld";
+import { LoanPageStyles, Checklist, Rows } from "@/components/LoanPageParts";
 
 export const metadata: Metadata = {
   title: "ITIN Home Loans in Miami, FL | Mortgage Options",
@@ -30,6 +31,24 @@ export const metadata: Metadata = {
 };
 
 export default function ITINHomeLoansMiami() {
+  const reasons = [
+    { title: "No SSN Required", text: "Explore mortgage programs designed for eligible ITIN holders." },
+    { title: "Flexible Documentation", text: "Some lenders accept alternative income and financial documents." },
+    { title: "Self-Employed Applicants", text: "Explore options based on qualifying income documentation." },
+    { title: "Personalized Guidance", text: "Get help understanding available loan programs." },
+    { title: "Homeownership Opportunities", text: "Take steps toward purchasing your home in Miami." },
+  ];
+
+  const requirements = [
+    "Valid ITIN documentation.",
+    "Proof of income.",
+    "Recent bank statements.",
+    "Tax returns, if required.",
+    "Identification documents.",
+    "Employment or self-employment information.",
+    "Down payment funds.",
+  ];
+
   const faqList = [
     { q: "Can I buy a home in Miami with an ITIN?", a: "Yes. Certain lenders offer mortgage programs for eligible borrowers who use an ITIN instead of a Social Security Number." },
     { q: "Can self-employed individuals apply for ITIN home loans?", a: "Yes. Some lenders accept self-employed applicants and review tax returns, bank statements, and other income documents." },
@@ -39,14 +58,18 @@ export default function ITINHomeLoansMiami() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itinLoansJsonLd) }} />
+      <LoanPageStyles />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itinLoansJsonLd) }}
+      />
 
       {/* HERO SECTION */}
       <section className="hero" style={{ minHeight: '62vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-bg">
           <Image src="/assets/nelly_hero_house.jpg" alt="ITIN Home Loans Miami" fill priority sizes="100vw" className="hero-photo" />
         </div>
-        <div className="hero-overlay" />
+        <div className="hero-overlay"></div>
         <div className="wrap hero-content">
           <span className="eyebrow">Miami, Florida Home Financing</span>
           <h1 className="serif kinetic" data-kinetic-mode="load" style={{ maxWidth: '820px' }}>
@@ -56,106 +79,104 @@ export default function ITINHomeLoansMiami() {
             Looking for ITIN home loans in Miami, FL? Explore mortgage options for ITIN holders and learn how to finance your dream home without a Social Security Number.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
-            <a className="btn btn-ghost-light" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
           </div>
         </div>
       </section>
 
-      {/* INTRO SECTION */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
+      {/* INTRO: large lead paragraph + supporting paragraph */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <p className="lp-lead">
             Looking to buy a home in Miami without a Social Security Number? ITIN Home Loans in Miami can help eligible individuals explore home financing options using an Individual Taxpayer Identification Number (ITIN).
           </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
+          <p className="lp-p">
             Nelly Santiesteban helps homebuyers understand available mortgage solutions, review their financing options, and navigate the home-buying process. Whether you are self-employed, a first-time buyer, or an individual with an ITIN, get personalized guidance to take the next step toward homeownership.
           </p>
         </div>
       </section>
 
-      {/* HOME FINANCING OPTIONS */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
+      {/* HOME FINANCING OPTIONS: statement panel + details */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll" style={{ marginBottom: '32px' }}>
             Home Financing Options for ITIN Holders
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '20px' }}>
-            Not having a Social Security Number does not necessarily mean you cannot purchase a home. Certain mortgage lenders offer ITIN loan programs for eligible borrowers who meet their financial and documentation requirements.
-          </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75 }}>
-            With the right mortgage guidance, you can explore financing options based on your income, financial history, and homeownership goals.
-          </p>
+          <div className="lp-feature reveal-up">
+            <div className="lp-feature-lead">
+              <p>Not having a Social Security Number does not necessarily mean you cannot purchase a home.</p>
+            </div>
+            <div className="lp-feature-body">
+              <p className="lp-p">
+                Certain mortgage lenders offer ITIN loan programs for eligible borrowers who meet their financial and documentation requirements.
+              </p>
+              <p className="lp-p lp-tint">
+                With the right mortgage guidance, you can explore financing options based on your income, financial history, and homeownership goals.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE ITIN */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
+      {/* WHY CHOOSE ITIN: title / description rows */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             Why Choose ITIN Home Loans?
           </h2>
-          <ul style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.6 }}>
-            <li><strong>No SSN Required:</strong> Explore mortgage programs designed for eligible ITIN holders.</li>
-            <li><strong>Flexible Documentation:</strong> Some lenders accept alternative income and financial documents.</li>
-            <li><strong>Self-Employed Applicants:</strong> Explore options based on qualifying income documentation.</li>
-            <li><strong>Personalized Guidance:</strong> Get help understanding available loan programs.</li>
-            <li><strong>Homeownership Opportunities:</strong> Take steps toward purchasing your home in Miami.</li>
-          </ul>
+          <Rows items={reasons} />
         </div>
       </section>
 
-      {/* MORTGAGE REQUIREMENTS */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
-            ITIN Mortgage Requirements
-          </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '14px' }}>
-            To explore ITIN home loan options in Miami, you may need:
-          </p>
-          <ul style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: '20px' }}>
-            <li>Valid ITIN documentation.</li>
-            <li>Proof of income.</li>
-            <li>Recent bank statements.</li>
-            <li>Tax returns, if required.</li>
-            <li>Identification documents.</li>
-            <li>Employment or self-employment information.</li>
-            <li>Down payment funds.</li>
-          </ul>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75 }}>
-            Requirements vary depending on the lender and mortgage program.
-          </p>
+      {/* MORTGAGE REQUIREMENTS: text and note left, checklist right */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap lp-split">
+          <div className="lp-split-text">
+            <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
+              ITIN Mortgage Requirements
+            </h2>
+            <p className="lp-p">
+              To explore ITIN home loan options in Miami, you may need:
+            </p>
+            <p className="lp-aside">
+              Requirements vary depending on the lender and mortgage program.
+            </p>
+          </div>
+          <Checklist items={requirements} />
         </div>
       </section>
 
-      {/* GET HELP SECTION */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
-            Get Help With Your ITIN Home Loan in Miami
-          </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
-            Choosing the right mortgage can make your home-buying journey easier. Nelly Santiesteban provides personalized mortgage guidance to help you understand your options and move forward with confidence.
-          </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
-            Whether you are purchasing your first home or exploring alternative financing, get support throughout the mortgage process.
-          </p>
+      {/* GET HELP: centered statement */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <div className="lp-center">
+            <div className="lp-rule" />
+            <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
+              Get Help With Your ITIN Home Loan in Miami
+            </h2>
+            <p className="lp-p">
+              Choosing the right mortgage can make your home-buying journey easier. Nelly Santiesteban provides personalized mortgage guidance to help you understand your options and move forward with confidence.
+            </p>
+            <p className="lp-p">
+              Whether you are purchasing your first home or exploring alternative financing, get support throughout the mortgage process.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '32px', color: 'var(--navy-950)' }}>
+      {/* FAQ: accordion */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll" style={{ marginBottom: '32px' }}>
             Frequently Asked Questions
           </h2>
-          <div style={{ display: 'grid', gap: '20px' }}>
+          <div className="lp-faq reveal-up">
             {faqList.map((faq, index) => (
-              <div key={index} className="reveal-up" style={{ padding: '26px 30px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-                <h3 style={{ fontSize: '18px', color: 'var(--navy-950)', marginBottom: '10px', fontWeight: 700 }}>{faq.q}</h3>
-                <p style={{ color: 'var(--ink-soft)', lineHeight: 1.7, margin: 0, fontSize: '16px' }}>{faq.a}</p>
-              </div>
+              <details key={index} open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
             ))}
           </div>
         </div>
@@ -167,13 +188,15 @@ export default function ITINHomeLoansMiami() {
           <h2 style={{ fontSize: '36px', fontFamily: 'Sora, sans-serif', marginBottom: '20px' }}>
             Start Your ITIN Home Loan Process Today
           </h2>
-          <p style={{ fontSize: '18px', opacity: 0.9, lineHeight: 1.7, marginBottom: '10px' }}>
+          <p style={{ fontSize: '18px', opacity: 0.9, lineHeight: 1.7, marginBottom: '14px' }}>
             Ready to explore home financing options? Contact Nelly Santiesteban today to discuss your goals and learn more about ITIN home loans in Miami, FL.
           </p>
-          <p style={{ fontSize: '18px', opacity: 0.9, lineHeight: 1.7, marginBottom: '24px' }}>
+          <p style={{ fontSize: '18px', color: 'var(--gold)', fontWeight: 600, marginBottom: '32px' }}>
             Let&apos;s take the next step toward your new home!
           </p>
-          <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+          <a className="btn btn-primary" href="/contact">
+            Contact Nelly Today
+          </a>
         </div>
       </section>
     </>

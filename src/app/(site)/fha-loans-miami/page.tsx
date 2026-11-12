@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { fhaLoansJsonLd } from "@/lib/jsonld";
+import { LoanPageStyles, Rows, Faq } from "@/components/LoanPageParts";
 
 export const metadata: Metadata = {
   title: "FHA Loans Miami | Low Down Payment Home Loans | Nelly Santiesteban",
@@ -18,6 +19,14 @@ export const metadata: Metadata = {
 };
 
 export default function FHALoansMiami() {
+  const guidance = [
+    { title: "Down Payment Requirements", text: "Understand the down payment options available based on your eligibility." },
+    { title: "Credit Requirements", text: "Learn how your credit profile may affect qualification." },
+    { title: "Income and Documentation", text: "Understand the financial information lenders may require." },
+    { title: "Mortgage Insurance", text: "Learn about FHA mortgage insurance requirements and associated costs." },
+    { title: "Pre-Approval", text: "Understand the steps involved in reviewing your financing options before buying a home." },
+  ];
+
   const faqList = [
     {
       q: "What is an FHA loan?",
@@ -39,6 +48,7 @@ export default function FHALoansMiami() {
 
   return (
     <>
+      <LoanPageStyles />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(fhaLoansJsonLd) }}
@@ -65,82 +75,51 @@ export default function FHALoansMiami() {
         </div>
       </section>
 
-      {/* EXPLORE FHA HOME LOANS SECTION */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--navy-950)' }}>
+      {/* EXPLORE FHA HOME LOANS: statement panel + details */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll" style={{ marginBottom: '32px' }}>
             Explore FHA Home Loans in Miami
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
-            FHA loans are mortgages insured by the Federal Housing Administration. They may offer eligible homebuyers flexible qualification requirements and down payment options, depending on the loan program and individual circumstances.
-          </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
-            Whether you&apos;re buying your first home or exploring mortgage options in Miami, understanding FHA loan requirements can help you prepare for your home purchase.
-          </p>
+          <div className="lp-feature reveal-up">
+            <div className="lp-feature-lead">
+              <p>FHA loans are mortgages insured by the Federal Housing Administration.</p>
+            </div>
+            <div className="lp-feature-body">
+              <p className="lp-p">
+                They may offer eligible homebuyers flexible qualification requirements and down payment options, depending on the loan program and individual circumstances.
+              </p>
+              <p className="lp-p lp-tint">
+                Whether you&apos;re buying your first home or exploring mortgage options in Miami, understanding FHA loan requirements can help you prepare for your home purchase.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FHA LOAN GUIDANCE FOR HOMEBUYERS */}
-      <section className="service-content" style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
+      {/* FHA LOAN GUIDANCE FOR HOMEBUYERS: full-width rows */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             FHA Loan Guidance for Homebuyers
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '32px' }}>
+          <p className="lp-p">
             Understanding the requirements is an important part of choosing an FHA loan. Get guidance on key considerations, including:
           </p>
-
-          <div style={{ display: 'grid', gap: '18px', marginTop: '24px' }}>
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Down Payment Requirements</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Understand the down payment options available based on your eligibility.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Credit Requirements</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Learn how your credit profile may affect qualification.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Income and Documentation</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Understand the financial information lenders may require.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Mortgage Insurance</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Learn about FHA mortgage insurance requirements and associated costs.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Pre-Approval</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Understand the steps involved in reviewing your financing options before buying a home.</p>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '14px', color: 'var(--ink-soft)', opacity: 0.85, fontStyle: 'italic', marginTop: '28px' }}>
+          <Rows items={guidance} />
+          <p className="lp-note">
             Actual requirements depend on FHA guidelines, lender criteria, and your financial circumstances.
           </p>
         </div>
       </section>
 
-      {/* FAQS SECTION */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '32px', color: 'var(--navy-950)' }}>
+      {/* FAQS: accordion */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll" style={{ marginBottom: '32px' }}>
             Frequently Asked Questions
           </h2>
-          <div style={{ display: 'grid', gap: '20px' }}>
-            {faqList.map((faq, index) => (
-              <div key={index} className="reveal-up" style={{ padding: '26px 30px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-                <h3 style={{ fontSize: '18px', color: 'var(--navy-950)', marginBottom: '10px', fontWeight: 700 }}>
-                  {faq.q}
-                </h3>
-                <p style={{ color: 'var(--ink-soft)', lineHeight: 1.7, margin: 0, fontSize: '16px' }}>
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Faq items={faqList} />
         </div>
       </section>
 

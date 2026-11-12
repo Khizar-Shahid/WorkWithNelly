@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { dscrLoansJsonLd } from "@/lib/jsonld";
+import { LoanPageStyles, Checklist, Rows } from "@/components/LoanPageParts";
 
 export const metadata: Metadata = {
   title: "DSCR Loans in Miami, FL | Investment Property Financing",
@@ -30,16 +31,44 @@ export const metadata: Metadata = {
 };
 
 export default function DSCRLoansMiami() {
+  const loanOptions = [
+    "Purchasing rental properties",
+    "Refinancing existing investment properties",
+    "Expanding rental property portfolios",
+    "Financing eligible short-term and long-term rentals",
+    "Buying investment properties through eligible LLCs",
+  ];
+
+  const benefits = [
+    { title: "Rental Income-Based Financing", text: "Qualify based mainly on your property's rental income." },
+    { title: "Flexible Income Requirements", text: "Many programs do not require traditional personal income verification." },
+    { title: "Investment Opportunities", text: "Finance eligible rental properties in Miami." },
+    { title: "Portfolio Growth", text: "Explore financing for additional investment properties." },
+    { title: "Purchase and Refinance Options", text: "Find financing for new purchases or eligible existing properties." },
+  ];
+
+  const applicants = [
+    "First-time real estate investors",
+    "Experienced property investors",
+    "Self-employed individuals",
+    "Rental property owners",
+    "Investors purchasing through an LLC",
+  ];
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dscrLoansJsonLd) }} />
+      <LoanPageStyles />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dscrLoansJsonLd) }}
+      />
 
       {/* HERO SECTION */}
       <section className="hero" style={{ minHeight: '62vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-bg">
           <Image src="/assets/nelly_hero_house.jpg" alt="DSCR Loans Miami" fill priority sizes="100vw" className="hero-photo" />
         </div>
-        <div className="hero-overlay" />
+        <div className="hero-overlay"></div>
         <div className="wrap hero-content">
           <span className="eyebrow">Miami, Florida Investor Financing</span>
           <h1 className="serif kinetic" data-kinetic-mode="load" style={{ maxWidth: '820px' }}>
@@ -49,124 +78,126 @@ export default function DSCRLoansMiami() {
             Explore DSCR loans in Miami, FL, and finance your investment property based on rental income. Find flexible financing options for real estate investors.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
-            <a className="btn btn-ghost-light" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+            <a className="btn btn-ghost-light" href="https://2384013.my1003app.com/1808120/register" target="_blank" rel="noopener noreferrer">Apply Online</a>
           </div>
         </div>
       </section>
 
-      {/* INTRO PARAGRAPH */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
+      {/* INTRO: large lead paragraph + gold call-out line */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <p className="lp-lead">
             Looking to invest in rental property in Miami? DSCR loans can help you finance an investment property based on its rental income rather than relying only on your personal income. Whether you are buying your first rental property or expanding your portfolio, we can help you explore financing options that match your investment goals.
           </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
+          <p className="lp-callout">
             Get started today and explore your DSCR loan options in Miami.
           </p>
         </div>
       </section>
 
-      {/* DSCR LOAN OPTIONS */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
-            DSCR Loan Options for Miami Real Estate Investors
-          </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '20px' }}>
-            DSCR loans are designed for real estate investors who want a simple way to finance rental properties. These loans focus on the property&apos;s income and its ability to cover monthly debt payments.
-          </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '14px' }}>
-            Our DSCR loan options can help investors with:
-          </p>
-          <ul style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.6 }}>
-            <li>Purchasing rental properties</li>
-            <li>Refinancing existing investment properties</li>
-            <li>Expanding rental property portfolios</li>
-            <li>Financing eligible short-term and long-term rentals</li>
-            <li>Buying investment properties through eligible LLCs</li>
-          </ul>
+      {/* DSCR LOAN OPTIONS: split layout, text left, checklist right */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap lp-split">
+          <div className="lp-split-text">
+            <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
+              DSCR Loan Options for Miami Real Estate Investors
+            </h2>
+            <p className="lp-p">
+              DSCR loans are designed for real estate investors who want a simple way to finance rental properties. These loans focus on the property&apos;s income and its ability to cover monthly debt payments.
+            </p>
+            <p className="lp-p">
+              Our DSCR loan options can help investors with:
+            </p>
+          </div>
+          <Checklist items={loanOptions} />
         </div>
       </section>
 
-      {/* HOW DSCR LOANS WORK */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--navy-950)' }}>
+      {/* HOW DSCR LOANS WORK: the example shown as an equation */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             How DSCR Loans Work
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
+          <p className="lp-p">
             A DSCR loan uses the property&apos;s rental income to evaluate its ability to cover mortgage payments.
           </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
+          <p className="lp-p">
             For example, if your property generates $3,000 in monthly rental income and your monthly debt payment is $2,500, the DSCR ratio is 1.20.
           </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
+
+          <div className="lp-eq reveal-up" aria-hidden="true">
+            <div className="lp-eq-box"><strong>$3,000</strong><span>Monthly rental income</span></div>
+            <span className="lp-eq-op">÷</span>
+            <div className="lp-eq-box"><strong>$2,500</strong><span>Monthly debt payment</span></div>
+            <span className="lp-eq-op">=</span>
+            <div className="lp-eq-box lp-eq-result"><strong>1.20</strong><span>DSCR ratio</span></div>
+          </div>
+
+          <p className="lp-p">
             This allows lenders to evaluate the property&apos;s income potential when reviewing your loan application.
           </p>
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
+      {/* BENEFITS: title / description rows */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             Benefits of DSCR Loans in Miami
           </h2>
-          <ul style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.6 }}>
-            <li><strong>Rental Income-Based Financing:</strong> Qualify based mainly on your property&apos;s rental income.</li>
-            <li><strong>Flexible Income Requirements:</strong> Many programs do not require traditional personal income verification.</li>
-            <li><strong>Investment Opportunities:</strong> Finance eligible rental properties in Miami.</li>
-            <li><strong>Portfolio Growth:</strong> Explore financing for additional investment properties.</li>
-            <li><strong>Purchase and Refinance Options:</strong> Find financing for new purchases or eligible existing properties.</li>
-          </ul>
+          <Rows items={benefits} />
         </div>
       </section>
 
-      {/* WHO CAN APPLY */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
+      {/* WHO CAN APPLY: plain list with a gold rule */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             Who Can Apply for a DSCR Loan?
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '14px' }}>
+          <p className="lp-p">
             DSCR loans may be suitable for:
           </p>
-          <ul style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: '20px' }}>
-            <li>First-time real estate investors</li>
-            <li>Experienced property investors</li>
-            <li>Self-employed individuals</li>
-            <li>Rental property owners</li>
-            <li>Investors purchasing through an LLC</li>
+          <ul className="lp-people reveal-up">
+            {applicants.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
+          <p className="lp-note">
             Eligibility depends on the lender&apos;s requirements, credit profile, property details, and rental income.
           </p>
         </div>
       </section>
 
-      {/* FIND THE RIGHT DSCR LOAN */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '14px', color: 'var(--navy-950)' }}>
-            Find the Right DSCR Loan for Your Investment
-          </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
-            Every real estate investment is different. Our team can help you explore available DSCR loan options based on your property, rental income, and financing goals.
-          </p>
+      {/* FIND THE RIGHT DSCR LOAN: centered statement */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <div className="lp-center">
+            <div className="lp-rule" />
+            <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
+              Find the Right DSCR Loan for Your Investment
+            </h2>
+            <p className="lp-p">
+              Every real estate investment is different. Our team can help you explore available DSCR loan options based on your property, rental income, and financing goals.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* CALL TO ACTION */}
+      {/* FINAL CTA */}
       <section style={{ padding: '80px 24px', background: 'var(--navy-950)', color: 'white', textAlign: 'center' }}>
         <div className="wrap reveal-up" style={{ maxWidth: '780px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '36px', fontFamily: 'Sora, sans-serif', marginBottom: '20px' }}>
             Ready to finance your investment property in Miami?
           </h2>
-          <p style={{ fontSize: '18px', opacity: 0.9, lineHeight: 1.7, marginBottom: '14px' }}>
+          <p style={{ fontSize: '18px', opacity: 0.9, lineHeight: 1.7, marginBottom: '32px' }}>
             Contact us today to discuss your DSCR loan options and take the next step toward growing your real estate portfolio.
           </p>
-          <a className="btn btn-primary" href="/contact">Contact Nelly Today</a>
+          <a className="btn btn-primary" href="/contact">
+            Contact Nelly Today
+          </a>
         </div>
       </section>
     </>

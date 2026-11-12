@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { homeLoansJsonLd } from "@/lib/jsonld";
+import { LoanPageStyles, Defs, Faq } from "@/components/LoanPageParts";
 
 export const metadata: Metadata = {
   title: "Home Loans Miami | Low Rates & Fast Pre-Approval | Nelly Santiesteban",
@@ -18,6 +19,14 @@ export const metadata: Metadata = {
 };
 
 export default function HomeLoansMiami() {
+  const loanTypes = [
+    { title: "First-Time Home Buyers", text: "Understand mortgage options available for eligible first-time buyers." },
+    { title: "Conventional Loans", text: "Explore financing options based on your financial profile." },
+    { title: "FHA Loans", text: "Learn about FHA-insured mortgages and their eligibility requirements." },
+    { title: "VA Loans", text: "Explore VA-backed financing if you meet the eligibility requirements." },
+    { title: "Jumbo Loans", text: "Consider financing options for properties requiring larger loan amounts." },
+  ];
+
   const faqList = [
     {
       q: "What home loan options are available in Miami?",
@@ -39,6 +48,7 @@ export default function HomeLoansMiami() {
 
   return (
     <>
+      <LoanPageStyles />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeLoansJsonLd) }}
@@ -65,85 +75,50 @@ export default function HomeLoansMiami() {
         </div>
       </section>
 
-      {/* FIND THE RIGHT LOAN SECTION */}
-      <section className="service-content" style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '18px', color: 'var(--navy-950)' }}>
+      {/* FIND THE RIGHT LOAN: intro text + gold-rule definition list */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
             Find the Right Home Loan for Your Needs
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '14px' }}>
+          <p className="lp-p">
             Every homebuyer has different financial needs. Choosing the right mortgage starts with understanding your budget, available down payment, and eligibility.
           </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.75, marginBottom: '32px' }}>
+          <p className="lp-p">
             Explore home mortgage loans in Miami and get guidance on available financing options that may fit your situation.
           </p>
-
-          <div style={{ display: 'grid', gap: '18px', marginTop: '28px' }}>
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>First-Time Home Buyers</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Understand mortgage options available for eligible first-time buyers.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Conventional Loans</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Explore financing options based on your financial profile.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>FHA Loans</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Learn about FHA-insured mortgages and their eligibility requirements.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>VA Loans</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Explore VA-backed financing if you meet the eligibility requirements.</p>
-            </div>
-
-            <div className="reveal-up" style={{ padding: '24px 28px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-              <h3 style={{ fontSize: '19px', color: 'var(--navy-900)', marginBottom: '8px', fontWeight: 700 }}>Jumbo Loans</h3>
-              <p style={{ color: 'var(--ink-soft)', lineHeight: 1.65, margin: 0 }}>Consider financing options for properties requiring larger loan amounts.</p>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '14px', color: 'var(--ink-soft)', opacity: 0.85, fontStyle: 'italic', marginTop: '28px' }}>
+          <Defs items={loanTypes} />
+          <p className="lp-note">
             Loan availability, terms, and qualification requirements vary.
           </p>
         </div>
       </section>
 
-      {/* YOUR MIAMI MORTGAGE LOAN OFFICER */}
-      <section style={{ padding: '80px 24px', background: '#ffffff' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--navy-950)' }}>
-            Your Miami Mortgage Loan Officer
-          </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: '20px' }}>
-            Choosing a mortgage can feel overwhelming, especially when you&apos;re comparing different loan programs. Nelly Santiesteban helps homebuyers understand the mortgage process, explore available options, and prepare for the next steps.
-          </p>
-          <p style={{ fontSize: '17px', color: 'var(--ink-soft)', lineHeight: 1.8 }}>
-            Whether you&apos;re purchasing your first property or planning your next home purchase, get personalized guidance based on your homeownership goals.
-          </p>
+      {/* YOUR MIAMI MORTGAGE LOAN OFFICER: centered statement */}
+      <section className="lp-sec">
+        <div className="lp-wrap">
+          <div className="lp-center">
+            <div className="lp-rule" />
+            <h2 className="kinetic lp-h2" data-kinetic-mode="scroll">
+              Your Miami Mortgage Loan Officer
+            </h2>
+            <p className="lp-p">
+              Choosing a mortgage can feel overwhelming, especially when you&apos;re comparing different loan programs. Nelly Santiesteban helps homebuyers understand the mortgage process, explore available options, and prepare for the next steps.
+            </p>
+            <p className="lp-p">
+              Whether you&apos;re purchasing your first property or planning your next home purchase, get personalized guidance based on your homeownership goals.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* FAQS SECTION */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)' }}>
-        <div className="wrap" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 className="kinetic" data-kinetic-mode="scroll" style={{ fontSize: '32px', marginBottom: '32px', color: 'var(--navy-950)' }}>
+      {/* FAQS: accordion */}
+      <section className="lp-sec lp-cream">
+        <div className="lp-wrap">
+          <h2 className="kinetic lp-h2" data-kinetic-mode="scroll" style={{ marginBottom: '32px' }}>
             Frequently Asked Questions
           </h2>
-          <div style={{ display: 'grid', gap: '20px' }}>
-            {faqList.map((faq, index) => (
-              <div key={index} className="reveal-up" style={{ padding: '26px 30px', background: 'white', borderRadius: '14px', boxShadow: '0 4px 16px rgba(19,29,56,0.05)', border: '1px solid rgba(19,29,56,0.06)' }}>
-                <h3 style={{ fontSize: '18px', color: 'var(--navy-950)', marginBottom: '10px', fontWeight: 700 }}>
-                  {faq.q}
-                </h3>
-                <p style={{ color: 'var(--ink-soft)', lineHeight: 1.7, margin: 0, fontSize: '16px' }}>
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Faq items={faqList} />
         </div>
       </section>
 

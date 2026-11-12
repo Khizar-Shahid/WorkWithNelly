@@ -1,7 +1,8 @@
+
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './src/sanity/schemaTypes';
-import { apiVersion, dataset, projectId } from './src/sanity/env';
+import { dataset, projectId } from './src/sanity/env';
 
 export default defineConfig({
   name: 'default',
@@ -10,9 +11,29 @@ export default defineConfig({
   dataset,
   basePath: '/studio',
 
-  plugins: [structureTool()],
+  plugins: [
+    structureTool(),
+  ],
 
   schema: {
     types: schemaTypes,
+  },
+
+  form: {
+    components: {
+      portableText: {
+        plugins: (props) => {
+          return props.renderDefault({
+            ...props,
+            plugins: {
+              ...props.plugins,
+              table: {
+                enabled: true,
+              },
+            },
+          });
+        },
+      },
+    },
   },
 });

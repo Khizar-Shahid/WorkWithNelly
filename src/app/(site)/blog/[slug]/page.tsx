@@ -3,12 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { PortableText, PortableTextComponents } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
+import PostBody from '@/components/PostBody';
 import { postBySlugQuery, postSlugsQuery, recentPostsQuery } from '@/sanity/lib/queries';
 import { urlForImage } from '@/sanity/lib/image';
 import { ArrowLeft, Calendar, Clock, Share2, PhoneCall, ChevronRight } from 'lucide-react';
 import BlogCard from '@/components/BlogCard';
+
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -55,84 +56,6 @@ export async function generateStaticParams() {
   }
 }
 
-const portableTextComponents: PortableTextComponents = {
-  types: {
-    image: ({ value }: any) => {
-      if (!value?.asset?._ref) return null;
-      const imageUrl = urlForImage(value).width(900).url();
-      return (
-        <figure className="my-8">
-          <img
-            src={imageUrl}
-            alt={value.alt || 'Article visual'}
-            className="w-full rounded-2xl shadow-sm border border-[#E7E7E7]"
-            loading="lazy"
-          />
-          {value.caption && (
-            <figcaption className="text-center text-xs text-[#5B6C9D] mt-2 italic">
-              {value.caption}
-            </figcaption>
-          )}
-        </figure>
-      );
-    },
-  },
-  block: {
-    h2: ({ children }) => (
-      <h2 className="text-2xl sm:text-3xl font-bold font-['Sora',sans-serif] text-[#1E2F5A] mt-10 mb-4 tracking-tight">
-        {children}
-      </h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="text-xl sm:text-2xl font-bold font-['Sora',sans-serif] text-[#1E2F5A] mt-8 mb-3 tracking-tight">
-        {children}
-      </h3>
-    ),
-    h4: ({ children }) => (
-      <h4 className="text-lg sm:text-xl font-bold font-['Sora',sans-serif] text-[#1E2F5A] mt-6 mb-2">
-        {children}
-      </h4>
-    ),
-    normal: ({ children }) => (
-      <p className="text-[#333333] text-base sm:text-lg leading-relaxed mb-6 font-normal">
-        {children}
-      </p>
-    ),
-    blockquote: ({ children }) => (
-      <blockquote className="my-8 pl-6 border-l-4 border-[#C9A227] italic text-[#1E2F5A] font-['Fraunces',serif] text-lg sm:text-xl bg-[#FAF6F1] py-4 pr-6 rounded-r-xl">
-        {children}
-      </blockquote>
-    ),
-  },
-  list: {
-    bullet: ({ children }) => (
-      <ul className="list-disc pl-6 mb-6 space-y-2 text-[#333333] text-base sm:text-lg leading-relaxed">
-        {children}
-      </ul>
-    ),
-    number: ({ children }) => (
-      <ol className="list-decimal pl-6 mb-6 space-y-2 text-[#333333] text-base sm:text-lg leading-relaxed">
-        {children}
-      </ol>
-    ),
-  },
-  marks: {
-    link: ({ children, value }) => {
-      const isExternal = (value?.href || '').startsWith('http');
-      return (
-        <a
-          href={value?.href}
-          target={isExternal ? '_blank' : undefined}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          className="text-[#C9A227] font-semibold underline decoration-[#C9A227]/40 hover:decoration-[#C9A227] transition-colors"
-        >
-          {children}
-        </a>
-      );
-    },
-    strong: ({ children }) => <strong className="font-bold text-[#1E2F5A]">{children}</strong>,
-  },
-};
 
 export default async function BlogPostDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -226,11 +149,13 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
         )}
 
         {/* Article Body Container */}
-        <div className="article-body text-[#333333] text-lg leading-relaxed">
+        <div className="article-body">
           {post.body ? (
-            <PortableText value={post.body} components={portableTextComponents} />
+            <PostBody value={post.body} />
           ) : (
-            <p className="italic text-[#5B6C9D]">No content available for this post.</p>
+            <p className="italic text-[#5B6C9D]">
+              No content available for this post.
+            </p>
           )}
         </div>
 

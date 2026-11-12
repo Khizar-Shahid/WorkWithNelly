@@ -89,23 +89,53 @@ export const postType = defineType({
       title: 'Body',
       type: 'array',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Heading 2', value: 'h2' },
+            { title: 'Heading 3', value: 'h3' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
+          lists: [
+            { title: 'Bullet list', value: 'bullet' },
+            { title: 'Numbered list', value: 'number' },
+          ],
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                    validation: (rule) =>
+                      rule.uri({
+                        allowRelative: true,
+                        scheme: ['http', 'https', 'mailto', 'tel'],
+                      }),
+                  },
+                ],
+              },
+            ],
+          },
+        },
         {
           type: 'image',
           options: { hotspot: true },
           fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative Text',
-            },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-            },
+            { name: 'alt', type: 'string', title: 'Alternative Text' },
+            { name: 'caption', type: 'string', title: 'Caption' },
           ],
         },
+        { type: 'table' },
       ],
     }),
   ],

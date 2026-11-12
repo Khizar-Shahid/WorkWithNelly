@@ -30,7 +30,7 @@ export default function MusicPlayer() {
       ]);
     }
 
-    audio.addEventListener('playing', () => { setState(true); stopListening(); });
+    audio.addEventListener('playing', () => setState(true));
     audio.addEventListener('pause', () => setState(false));
 
     btn.onclick = () => {
@@ -41,27 +41,6 @@ export default function MusicPlayer() {
         rememberPause(true);
         audio.pause();
       }
-    };
-
-    const events = ['pointerdown','touchend','click','keydown'];
-    function onInteract(e: Event){
-      if (userPaused || !audio.paused) return stopListening();
-      if (e && btn?.contains(e.target as Node)) return; // the button handles its own click
-      playWithTimeout().catch(() => {});
-    }
-    
-    function stopListening(){
-      events.forEach(ev => document.removeEventListener(ev, onInteract, true));
-    }
-
-    if (!userPaused) {
-      audio.preload = 'auto';
-      playWithTimeout().catch(() => {});
-      events.forEach(ev => document.addEventListener(ev, onInteract, true));
-    }
-
-    return () => {
-      stopListening();
     };
   }, []);
 

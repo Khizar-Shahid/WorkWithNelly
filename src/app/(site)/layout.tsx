@@ -50,7 +50,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           id="msgsndr-tracking"
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_3340882233e04bbda51c95468e50c67a"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <GoogleAnalytics gaId="G-XDDS4T5GZM" />
         {/* second GA4 property (A+ Active) feeding the lead tracker dashboard */}

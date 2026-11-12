@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function SiteHeader() {
@@ -85,8 +86,8 @@ export default function SiteHeader() {
     <header id="siteHeader" ref={headerRef} className={isLightPage ? 'scrolled' : ''}>
       <nav className="nav">
         <Link href="/#home" className="logo" onClick={closeAllNav}>
-          <img className="mark mark-white" src="/assets/nelly_mark_white.png" alt="" />
-          <img className="mark mark-color" src="/assets/nelly_mark.png" alt="Nelly Santiesteban logo" />
+          <Image className="mark mark-white" src="/assets/nelly_mark_white.png" alt="" width={38} height={31} priority />
+          <Image className="mark mark-color" src="/assets/nelly_mark.png" alt="Nelly Santiesteban logo" width={38} height={31} priority />
           <span className="wordmark">
             <span className="lw-name">Nelly Santiesteban</span>
             <span className="lw-title">Mortgage Loan Officer</span>

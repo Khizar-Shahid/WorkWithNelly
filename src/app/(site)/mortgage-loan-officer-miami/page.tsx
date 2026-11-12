@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { mortgageOfficerJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function MortgageLoanOfficerMiami() {
       {/* HERO SECTION */}
       <section className="hero" style={{ minHeight: '62vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-bg">
-          <img src="/assets/nelly_hero_house.jpg" alt="Miami mortgage loan officer" className="hero-photo" />
+          <Image src="/assets/nelly_hero_house.jpg" alt="Miami mortgage loan officer" fill priority sizes="100vw" className="hero-photo" />
         </div>
         <div className="hero-overlay"></div>
         <div className="wrap hero-content">

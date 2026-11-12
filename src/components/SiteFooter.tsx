@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function SiteFooter() {
   return (
@@ -12,7 +13,7 @@ export default function SiteFooter() {
                 className="logo" 
                 aria-label="Nelly Santiesteban - Home"
               >
-                <img className="mark mark-white" src="/assets/nelly_mark_white.png" alt="Nelly Santiesteban logo" />
+                <Image className="mark mark-white" src="/assets/nelly_mark_white.png" alt="Nelly Santiesteban logo" width={38} height={31} loading="lazy" />
                 <span className="wordmark"><span className="lw-name">Nelly Santiesteban</span><span className="lw-title">Mortgage Loan Officer</span></span>
               </Link>
               <p style={{ maxWidth: '260px' }}>Miami based mortgage loan officer helping buyers across Florida get the financing to live where they have always pictured themselves.</p>
@@ -63,7 +64,7 @@ export default function SiteFooter() {
           </div>
           <div className="foot-bottom">
             <div className="eho">
-              <img src="/assets/eho_logo_white.png" alt="Equal Housing Opportunity" width="30" height="32" />
+              <Image src="/assets/eho_logo_white.png" alt="Equal Housing Opportunity" width={30} height={32} loading="lazy" />
               <span>Equal Housing Opportunity</span>
             </div>
             <div className="foot-legal">

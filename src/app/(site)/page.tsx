@@ -1,6 +1,7 @@
 // @ts-nocheck
 "use client";
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { homePageJsonLd } from '@/lib/jsonld';
 import PaymentCalculator from '@/components/PaymentCalculator';
 
@@ -150,7 +151,7 @@ export default function Home() {
 
           <section id="home" className="hero">
             <div className="hero-bg">
-              <img src="assets/nelly_hero_bright.jpg" alt="" className="hero-photo" />
+              <Image src="/assets/nelly_hero_bright.jpg" alt="Miami mortgage financing with Nelly Santiesteban" fill priority sizes="100vw" className="hero-photo" />
             </div>
             <div className="hero-overlay"></div>
 
@@ -171,7 +172,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-portrait">
-                <img src="assets/nelly_headshot_new.jpg" alt="Nelly Santiesteban, Miami mortgage loan officer" />
+                <Image src="/assets/nelly_headshot_new.jpg" alt="Nelly Santiesteban, Miami mortgage loan officer" width={400} height={500} loading="lazy" sizes="(max-width: 640px) 170px, (max-width: 960px) 230px, 400px" />
                 <div className="hp-tag">
                   <div className="n">Nelly Santiesteban</div>
                   <div className="l">NMLS #1808120</div>
@@ -209,7 +210,7 @@ export default function Home() {
           <section id="about">
             <div className="wrap about-grid">
               <div className="about-photo">
-                <img src="assets/nelly_headshot_new.jpg" alt="Nelly Santiesteban, Miami mortgage loan officer" />
+                <Image src="/assets/nelly_headshot_new.jpg" alt="Nelly Santiesteban, Miami mortgage loan officer" width={450} height={460} loading="lazy" sizes="(max-width: 768px) 100vw, 450px" />
                 <div className="about-tag">
                   <div className="n">Nelly Santiesteban</div>
                   <div className="l">MORTGAGE LOAN OFFICER</div>
@@ -228,9 +229,9 @@ export default function Home() {
             </div>
             <div className="wrap">
               <div className="photo-strip">
-                <figure className="ps-item ps-tall"><img src="assets/nelly_gallery_lobby.jpg" alt="Nelly Santiesteban meeting a client" /></figure>
-                <figure className="ps-item"><img src="assets/nelly_gallery_alt.jpg" alt="Nelly Santiesteban, mortgage loan officer" /></figure>
-                <figure className="ps-item ps-mono"><img src="assets/nelly_gallery_work_color.jpg" alt="Nelly Santiesteban working through loan options" /></figure>
+                <figure className="ps-item ps-tall"><Image src="/assets/nelly_gallery_lobby.jpg" alt="Nelly Santiesteban meeting a client" width={400} height={500} loading="lazy" sizes="(max-width: 768px) 50vw, 33vw" /></figure>
+                <figure className="ps-item"><Image src="/assets/nelly_gallery_alt.jpg" alt="Nelly Santiesteban, mortgage loan officer" width={400} height={500} loading="lazy" sizes="(max-width: 768px) 50vw, 33vw" /></figure>
+                <figure className="ps-item ps-mono"><Image src="/assets/nelly_gallery_work_color.jpg" alt="Nelly Santiesteban working through loan options" width={400} height={500} loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" /></figure>
               </div>
             </div>
           </section>
@@ -329,7 +330,7 @@ export default function Home() {
                 </div>
                 <div className="prog-panel" role="tabpanel" aria-live="polite">
                   <div className="pp-media">
-                    <img src="assets/nelly_closing_family.jpg" alt="Nelly Santiesteban helping a family sign their home loan documents" loading="lazy" />
+                    <Image src="/assets/nelly_closing_family.jpg" alt="Nelly Santiesteban helping a family sign their home loan documents" width={600} height={210} loading="lazy" sizes="(max-width: 768px) 100vw, 600px" />
                     <div className="pp-quote">We guide you from A to Z.</div>
                   </div>
                   <div className="pp-body" id="progBody"></div>
@@ -392,7 +393,7 @@ export default function Home() {
           <section id="numbers">
             <div className="wrap num-grid">
               <div className="num-photo">
-                <img src="assets/nelly_closing_signing.jpg" alt="Nelly Santiesteban reviewing loan documents with a couple" loading="lazy" />
+                <Image src="/assets/nelly_closing_signing.jpg" alt="Nelly Santiesteban reviewing loan documents with a couple" width={600} height={520} loading="lazy" sizes="(max-width: 768px) 100vw, 600px" />
                 <div className="np-badge">Guiding you home.</div>
               </div>
               <div className="num-copy">

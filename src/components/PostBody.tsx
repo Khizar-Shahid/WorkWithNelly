@@ -137,17 +137,43 @@ function PostBodyStyles() {
         line-height: 1.65;
       }
 
-      .post-body thead th {
-        padding: 17px 20px;
-        border: 1px solid #35466F;
-        background: #1E2F5A;
-        color: #FFFFFF;
-        text-align: left;
-        vertical-align: top;
-        font-family: Sora, sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-      }
+/* Selected header rows: navy background and white text */
+.post-body thead th {
+  padding: 17px 20px;
+  border: 1px solid #35466F;
+  background: #1E2F5A;
+  color: #FFFFFF;
+  text-align: left;
+  vertical-align: top;
+  font-family: Sora, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* All content inside selected header cells must also be white */
+.post-body thead th,
+.post-body thead th p,
+.post-body thead th strong,
+.post-body thead th span {
+  color: #FFFFFF !important;
+}
+
+/* Unselected rows: white background and black text */
+.post-body tbody td {
+  background: #FFFFFF;
+  color: #111111;
+}
+
+.post-body tbody td p,
+.post-body tbody td strong,
+.post-body tbody td span {
+  color: #111111;
+}
+
+/* Alternate body rows */
+.post-body tbody tr:nth-child(even) td {
+  background: #F7F3EB;
+}
 
       .post-body thead th p {
         margin: 0;

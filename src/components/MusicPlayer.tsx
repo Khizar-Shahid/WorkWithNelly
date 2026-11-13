@@ -30,8 +30,22 @@ export default function MusicPlayer() {
       ]);
     }
 
-    audio.addEventListener('playing', () => setState(true));
-    audio.addEventListener('pause', () => setState(false));
+    // Autoplay on the visitor's first interaction (browsers block sound before one).
+    // The mp3 stays preload="none", so nothing downloads until someone clicks, taps or types.
+    const events = ['pointerdown', 'touchend', 'click', 'keydown'];
+    function stopListening(){
+      events.forEach(ev => document.removeEventListener(ev, onInteract, true));
+    }
+    function onInteract(e: Event){
+      if (userPaused || !audio.paused) return stopListening();
+      if (btn?.contains(e.target as Node)) return; // the button handles its own click
+      playWithTimeout().catch(() => {}); // keep listening, the next interaction retries
+    }
+
+    const onPlaying = () => { setState(true); stopListening(); };
+    const onPause = () => setState(false);
+    audio.addEventListener('playing', onPlaying);
+    audio.addEventListener('pause', onPause);
 
     btn.onclick = () => {
       if (audio.paused) {
@@ -41,6 +55,16 @@ export default function MusicPlayer() {
         rememberPause(true);
         audio.pause();
       }
+    };
+
+    if (!userPaused) {
+      events.forEach(ev => document.addEventListener(ev, onInteract, true));
+    }
+
+    return () => {
+      stopListening();
+      audio.removeEventListener('playing', onPlaying);
+      audio.removeEventListener('pause', onPause);
     };
   }, []);
 

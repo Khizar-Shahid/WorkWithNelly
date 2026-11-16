@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { homePageJsonLd } from '@/lib/jsonld';
 import PaymentCalculator from '@/components/PaymentCalculator';
+import GoogleReviews from '@/components/GoogleReviews';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -426,65 +427,7 @@ export default function Home() {
                 <h2 className="kinetic" data-kinetic-mode="scroll">What it&apos;s actually like to work with Nelly.</h2>
               </div>
 
-              <div className="quote-grid">
-                <div className="quote-card">
-                  <div className="stars">
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                  </div>
-                  <p>As a first time home buyer Mrs. Santiesteban absolutely created a safe and secure sense of understanding the complexities of buying.</p>
-                  <div className="quote-attr">
-                    <div className="quote-who">
-                      <div className="quote-avatar">V</div>
-                      <div>
-                        <div className="who">Vanessa S.</div>
-                        <div className="where">First time homebuyer</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="quote-card">
-                  <div className="stars">
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                  </div>
-                  <p>Highly recommended! She helped me from beginning to end. Thanks to her, my family and I bought our first home.</p>
-                  <div className="quote-attr">
-                    <div className="quote-who">
-                      <div className="quote-avatar">S</div>
-                      <div>
-                        <div className="who">Shiqui M.</div>
-                        <div className="where">Translated from Spanish</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="quote-card">
-                  <div className="stars">
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                    <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z" /></svg>
-                  </div>
-                  <p>Excellent customer service and trustworthy company. It was a pleasure working with them and getting the best outcome for my financial needs. Ms. Santiesteban was truly a pleasure to work with.</p>
-                  <div className="quote-attr">
-                    <div className="quote-who">
-                      <div className="quote-avatar">C</div>
-                      <div>
-                        <div className="who">Claire S.</div>
-                        <div className="where">Google review</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <GoogleReviews />
               <div className="ig-cta">
                 <a className="btn btn-dark" href="https://www.google.com/search?q=Nelly+Santiesteban+Mortgage+Loan+Officer&amp;kgmid=%2Fg%2F11yr03xkym" target="_blank" rel="noopener">Read My Google Reviews</a>
                 <a className="btn btn-outline" href="https://www.zillow.com/lender-profile/workwithnelly/" target="_blank" rel="noopener">View Zillow Profile</a>

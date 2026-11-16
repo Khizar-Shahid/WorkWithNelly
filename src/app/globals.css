@@ -819,3 +819,42 @@
     .pc-legend{width:100%;}
     .pc-num input{width:80px;}
   }
+
+  /* ===== Nov 16 2026: flat menu (no dropdowns), condensed to fit 8 links ===== */
+  .navlinks{gap:18px;}
+  .navlinks a{font-size:13.5px;}
+  .navtoggle{flex-shrink:0;}
+  @media (max-width: 1280px){
+    .nav{padding:0 24px;gap:14px;}
+    .navlinks{gap:14px;}
+    .navlinks a{font-size:13px;}
+    .nav-phone{display:none;} /* phone stays in the hero, footer and mobile bar */
+  }
+  @media (max-width: 1100px){
+    .navlinks{display:none;}
+    .navtoggle{display:block;}
+    .nav-cta{margin-left:auto;}
+    .navlinks.mobile-open{
+      display:flex;position:absolute;top:100%;left:0;right:0;background:#F7F3EB;
+      flex-direction:column;align-items:flex-start;padding:24px 32px;gap:16px;
+      border-bottom:1px solid rgba(19,29,56,0.12);box-shadow:0 12px 24px rgba(19,29,56,0.08);
+      max-height:calc(100vh - 80px);overflow-y:auto;z-index:999;
+    }
+    .navlinks.mobile-open a{color:#1E2F5A !important;font-size:15px;width:100%;text-align:left;}
+  }
+  /* phones: keep the menu button on screen (Call + Apply live in the bottom bar) */
+  @media (max-width: 640px){
+    .nav{padding:0 18px;gap:12px;}
+    .nav-cta{display:none;}
+    .logo{gap:10px;min-width:0;}
+    .logo .mark{width:32px;}
+    .logo .lw-name{font-size:16.5px;}
+  }
+
+  /* live Google reviews: gentle fade when the set rotates */
+  .quote-grid.rotating .quote-card{animation:qfade .6s ease both;}
+  @keyframes qfade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .review-dots{display:flex;justify-content:center;gap:8px;margin-top:22px;}
+  .review-dots button{width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(30,47,90,0.22);}
+  .review-dots button.on{background:var(--navy-900);}
+  @media (prefers-reduced-motion: reduce){.quote-grid.rotating .quote-card{animation:none;}}

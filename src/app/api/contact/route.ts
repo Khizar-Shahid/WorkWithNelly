@@ -6,10 +6,11 @@ export const dynamic = 'force-dynamic';
 
 /* ── recipients & external endpoints ─────────────────────────── */
 
+// Instant alert for every website form entry (Nelly + Norberto, A+ Active kept on until handoff)
 const NOTIFY_EMAILS = [
-  'abdurrehman.swe@gmail.com',
+  'workwithnelly1@gmail.com',
+  'carlos0718@gmail.com',
   'khizar@aplusactive.com',
-  'tassadiqhussain35@gmail.com',
 ];
 
 const GOOGLE_SHEET_ENDPOINT =
